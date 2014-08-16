@@ -7,10 +7,10 @@
 (require-package 'evil-surround)
 (require-package 'evil-leader)
 (require-package 'evil-nerd-commenter)
+(require-package 'evil-matchit)
 (require-package 'evil-visualstar)
 
 (require 'init-local-util)
-
 (require 'init-evil)
 (require 'init-powerline)
 

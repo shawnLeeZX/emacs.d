@@ -1,6 +1,11 @@
 ;;; Init related evil extensions.
 
+;; Make a visual selection with v or V, and then hit * to search that
+;; selection forward, or # to search that selection backward.
 (require 'evil-visualstar)
+
+(require 'evil-matchit)
+(global-evil-matchit-mode 1)
 
 (require 'evil-surround)
 (global-evil-surround-mode)
@@ -8,7 +13,8 @@
 (require 'evil-nerd-commenter)
 ;; Tip 2, change comment style
 
-;; For example, use double slashes (//) instead of slash-stars (* … *) in c-mode.
+;; For example, use double slashes (//) instead of slash-stars (* … *)
+;; in c-mode.
 
 ;; Insert below code into your ~/.emacs:
 
