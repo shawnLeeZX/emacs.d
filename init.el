@@ -52,6 +52,7 @@
 (require 'init-ido)
 (require 'init-hippie-expand)
 (require 'init-yasnippet)
+(require 'init-iedit)
 (require 'init-auto-complete)
 (require 'init-auto-complete-c-headers)
 (require 'init-windows)
