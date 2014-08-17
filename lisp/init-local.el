@@ -13,11 +13,12 @@
 (setq whitespace-style '(trailing tabs tab-mark))
 
 ;; Display line number on the margin.
-(linum-mode 1)
+(global-linum-mode)
 (setq linum-format "%4d \u2502")
 
 ;; Enable flyspell mode for word checking.
 (flyspell-mode 1)
 (require 'init-language-tool)
+
 
 (provide 'init-local)
