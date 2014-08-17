@@ -11,5 +11,8 @@
 (setq show-trailing-whitespace t)
 (setq whitespace-style '(trailing tabs tab-mark))
 
+;; Display line number on the margin.
+(linum-mode 1)
+(setq linum-format "%4d \u2502")
 
 (provide 'init-local)
