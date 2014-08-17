@@ -1,4 +1,11 @@
 ;;; Init related evil extensions.
+(require-package 'evil)
+(require-package 'evil-surround)
+(require-package 'evil-leader)
+(require-package 'evil-nerd-commenter)
+(require-package 'evil-matchit)
+(require-package 'evil-visualstar)
+
 
 ;; Make a visual selection with v or V, and then hit * to search that
 ;; selection forward, or # to search that selection backward.

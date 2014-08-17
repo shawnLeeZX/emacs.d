@@ -100,6 +100,8 @@
 
 (require 'init-dash)
 (require 'init-ledger)
+
+(require 'init-evil)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
@@ -109,6 +111,8 @@
 (when *is-a-mac*
   (require-package 'osx-location))
 (require-package 'regex-tool)
+
+(require-package 'ecb)
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
