@@ -1,7 +1,7 @@
 ;;;; Common utilities for emacs.
 
 ;;; Setup between-applications copy and paste.
-;;; =============================================================================
+;;; ========================================================================
 ;; http://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/
 ;; I prefer using the "clipboard" selection (the one the
 ;; typically is used by c-c/c-v) before the primary selection
@@ -45,5 +45,13 @@
     ;; http://www.mail-archive.com/help-gnu-emacs@gnu.org/msg03577.html
   )
 )
+
+;;; 
+;;; ========================================================================
+(defun comment-auto-fill ()
+  (setq-local comment-auto-fill-only-comments t)
+  (auto-fill-mode 1)
+)
+
 
 (provide `init-local-util)

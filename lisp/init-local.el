@@ -20,5 +20,4 @@
 (flyspell-mode 1)
 (require 'init-language-tool)
 
-
 (provide 'init-local)

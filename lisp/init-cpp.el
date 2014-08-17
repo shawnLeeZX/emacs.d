@@ -27,5 +27,6 @@
   (add-to-list 'ac-sources 'ac-source-semantic)
 )
 (add-hook 'c-mode-common-hook 'shawn:enable-c/cpp-semantic)
+(add-hook 'c-mode-common-hook 'comment-auto-fill)
 
 (provide 'init-cpp)
