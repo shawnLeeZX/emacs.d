@@ -16,4 +16,7 @@
 (linum-mode 1)
 (setq linum-format "%4d \u2502")
 
+;; Auto complete file path.
+(add-to-list 'ac-sources 'ac-source-filename)
+
 (provide 'init-local)
