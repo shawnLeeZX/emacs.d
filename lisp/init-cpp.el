@@ -18,9 +18,14 @@
 (add-hook 'c-mode-hook 'shawn:flymake-google-init)
 (add-hook 'c++-mode-hook 'shawn:flymake-google-init)
 
-;; start google-c-style with emacs.
-(require 'google-c-style)
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+;; Start semantic mode.
+(semantic-mode 1)
+;; Make semantic parse buffers when idle.
+(global-semantic-idle-scheduler-mode 1)
+;; Enable semantic parsing for c/cpp.
+(defun shawn:enable-c/cpp-semantic ()
+  (add-to-list 'ac-sources 'ac-source-semantic)
+)
+(add-hook 'c-mode-common-hook 'shawn:enable-c/cpp-semantic)
 
 (provide 'init-cpp)
