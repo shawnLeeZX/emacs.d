@@ -6,6 +6,7 @@
 
 (require 'init-powerline)
 (require 'init-local-util)
+(require 'init-key-binding)
 
 ;; Display trailing whitespace.
 (setq show-trailing-whitespace t)
