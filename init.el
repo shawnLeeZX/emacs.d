@@ -54,7 +54,6 @@
 (require 'init-yasnippet)
 (require 'init-iedit)
 (require 'init-auto-complete)
-(require 'init-auto-complete-c-headers)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-fonts)
@@ -67,6 +66,7 @@
 (require 'init-git)
 (require 'init-github)
 
+(require 'init-cpp)
 (require 'init-crontab)
 (require 'init-textile)
 (require 'init-markdown)
