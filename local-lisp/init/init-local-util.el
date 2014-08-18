@@ -48,10 +48,29 @@
 
 ;;; 
 ;;; ========================================================================
+;; Only turn on aut-fill-mode in comments.
 (defun comment-auto-fill ()
   (setq-local comment-auto-fill-only-comments t)
   (auto-fill-mode 1)
 )
 
+;;; Kill buffers.
+;;; ========================================================================
+;; Kill all other buffers.
+(defun kill-other-buffers ()
+      "Kill all other buffers."
+      (interactive)
+      (mapc 'kill-buffer (delq (current-buffer) (buffer-list)))
+)
+
+;; Kill all dired buffers.
+(defun kill-dired-buffers ()
+	 (interactive)
+	 (mapc (lambda (buffer)
+           (when (eq 'dired-mode (buffer-local-value 'major-mode buffer))
+             (kill-buffer buffer)))
+         (buffer-list)
+         )
+)
 
 (provide `init-local-util)
