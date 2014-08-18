@@ -28,5 +28,6 @@
 )
 (add-hook 'c-mode-common-hook 'shawn:enable-c/cpp-semantic)
 (add-hook 'c-mode-common-hook 'comment-auto-fill)
+(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
 
 (provide 'init-cpp)

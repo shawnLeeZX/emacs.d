@@ -17,7 +17,6 @@
 (setq linum-format "%4d \u2502")
 
 ;; Enable flyspell mode for word checking.
-(global-flycheck-mode 1)
 (require 'init-language-tool)
 
 (provide 'init-local)
