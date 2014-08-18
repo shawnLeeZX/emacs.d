@@ -67,7 +67,7 @@ maptimeout 5
 A bunch of utilities for ease of usage is added in
 `local-lisp/init/init-local.el`. See the comment in the file for detail.
 
-#### Misc
+## Misc
 
 * Generate tags for emacs using `-e` option using ctags.
 * Shell in emacs. See this [post](http://www.masteringemacs.org/articles/2010/11/01/running-shells-in-emacs-overview/).
