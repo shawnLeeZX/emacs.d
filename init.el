@@ -53,6 +53,7 @@
 (require 'init-hippie-expand)
 (require 'init-yasnippet)
 (require 'init-iedit)
+(require 'init-autopair)
 (require 'init-auto-complete)
 (require 'init-windows)
 (require 'init-sessions)

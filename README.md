@@ -4,7 +4,8 @@ I forked this [emacs.d](https://github.com/purcell/emacs.d) to make my own.
 You could setup your own following the tutorial
 [here](http://shawnleezx.github.io/blog/2014/08/18/learning-emacs-in-3-days/).
 
-Continuing the tutorial, functionalities of this `emacs.d` will be described.
+Continuing the tutorial, functionalities added after forking of this `emacs.d`
+will be described.
 
 If you find this repo useful, please give it a star!
 
@@ -13,6 +14,8 @@ If you find this repo useful, please give it a star!
 Emacs has better package management mechanism for extensions than
 vim. I use `package.el`. See this
 [blog](http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/).
+
+Note that this is not an added functionalities.
 
 ## Copy Paste
 I use emacs in a termial, and by default inter-program copy and paste
@@ -35,6 +38,12 @@ management system. To manage the extensions you download, use git. And
 to keep those extensions in their git repo will ease the process of
 updating. To make this work, some knowledge of git submodule will be
 helpful. See this [post](http://longair.net/blog/2010/06/02/git-submodules-explained/).
+
+## Autopair
+
+Beyond the electric-pair mode used in purcell's configuration, I use
+[autopair](https://github.com/capitaomorte/autopair) to make the auto
+pairing more functional.
 
 ## Development Environment for C/C++
 
