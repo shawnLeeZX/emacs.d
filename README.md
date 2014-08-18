@@ -6,6 +6,8 @@ You could setup your own following the tutorial
 
 Continuing the tutorial, functionalities of this `emacs.d` will be described.
 
+If you find this repo useful, please give it a star!
+
 ## Package Management
 
 Emacs has better package management mechanism for extensions than
