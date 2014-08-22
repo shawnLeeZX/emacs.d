@@ -68,6 +68,7 @@
 (require 'init-github)
 
 (require 'init-cpp)
+(require 'init-r-mode)
 (require 'init-crontab)
 (require 'init-textile)
 (require 'init-markdown)
