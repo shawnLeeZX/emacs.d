@@ -79,12 +79,9 @@ add-on package for emacs text editors such as GNU Emacs and XEmacs. It
 is designed to support editing of scripts and interaction with various
 statistical analysis programs such as R, S-Plus, SAS, Stata and JAGS.
 
-ESS works with auto-complete to provide auto
-completion. [Link](http://www.emacswiki.org/emacs/ESSAuto-complete). However,
-there is still a problem with ESS and autocomplete. I have to start
-`inferior-ess-mode`, meaning to start `R` from emacs manually to get
-the autocompletion work.
-
+ESS works with auto-complete to provide auto completion.
+[Link](http://www.emacswiki.org/emacs/ESSAuto-complete). Note that you should
+start R, using `M-X R` beforehand, to make the autocomplete work.
 
 ## Utilities
 
