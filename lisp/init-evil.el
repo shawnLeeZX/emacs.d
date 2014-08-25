@@ -63,6 +63,7 @@
   "cp" 'evilnc-comment-or-uncomment-paragraphs
   "cr" 'comment-or-uncomment-region
   "cv" 'evilnc-toggle-invert-comment-line-by-line
+  "w"  'save-buffer
   )
 
 ;; Begin evil mode.
