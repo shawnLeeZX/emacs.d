@@ -47,6 +47,7 @@
 (require 'init-uniquify)
 (require 'init-ibuffer)
 (require 'init-flycheck)
+(require 'init-highlight-indentation)
 
 (require 'init-recentf)
 (require 'init-ido)
@@ -54,6 +55,7 @@
 (require 'init-yasnippet)
 (require 'init-iedit)
 (require 'init-autopair)
+;; (require 'init-smartparens)
 (require 'init-auto-complete)
 (require 'init-windows)
 (require 'init-sessions)
@@ -83,6 +85,7 @@
 (require 'init-haml)
 (require 'init-python-mode)
 (require 'init-haskell)
+(require 'init-web-mode)
 (require 'init-ruby-mode)
 (require 'init-rails)
 (require 'init-sql)

@@ -49,7 +49,8 @@
                 lisp-mode textile-mode markdown-mode tuareg-mode
                 js3-mode css-mode less-css-mode sql-mode
                 sql-interactive-mode
-                inferior-emacs-lisp-mode))
+                inferior-emacs-lisp-mode
+                web-mode))
   (add-to-list 'ac-modes mode))
 
 

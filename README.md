@@ -83,10 +83,48 @@ ESS works with auto-complete to provide auto completion.
 [Link](http://www.emacswiki.org/emacs/ESSAuto-complete). Note that you should
 start R, using `M-X R` beforehand, to make the autocomplete work.
 
+## IDE for ruby on rails
+
+### yari
+
+[yari](http://www.emacswiki.org/emacs-de/YARI) provides an Emacs frontend to Ruby's `ri` documentation tool. It offers
+lookup and completion.
+
+### robe
+
+[Robe](https://github.com/dgutov/robe) is a code assistance tool that uses a Ruby REPL subprocess with your
+application or gem code loaded, to provide information about loaded classes and
+modules, and where each method is defined.
+
+### inf-ruby
+[inf-ruby](https://github.com/nonsequitur/inf-ruby/) provides a REPL buffer connected to a Ruby subprocess.
+
+### web-mode with auto-complete
+
+[web-mode.el](http://web-mode.org/) is an autonomous emacs major-mode for
+editing web templates: HTML documents embedding parts (CSS / JavaScript) and
+blocks (client / server side). I added context awareness in web-mode to let
+auto-complete to make it capable of working with all kinds of language in the
+embedded file. What's more, web-mode is able to autoclose html tag pairs.
+
+### flycheck
+
+To enable flycheck for ruby, install:
+
+```bash
+gem install rubocop ruby-lint
+```
+
+TODO: make flycheck for `.erb` files work.
+
 ## Utilities
 
 A bunch of utilities for ease of usage is added in
 `local-lisp/init/init-local.el`. See the comment in the file for detail.
+
+### Highlighting indentation
+[Highlight indentation](https://github.com/antonj/Highlight-Indentation-for-Emacs) for emacs.
+
 
 ## Misc
 
