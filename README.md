@@ -45,6 +45,15 @@ Beyond the electric-pair mode used in purcell's configuration, I use
 [autopair](https://github.com/capitaomorte/autopair) to make the auto
 pairing more functional.
 
+## ECB
+
+[ECB](http://ecb.sourceforge.net/) stands for "Emacs Code Browser". While Emacs
+already has good editing support for many modes, its browsing support is
+somewhat lacking. That's where ECB comes in: it displays a number of
+informational windows that allow for easy source code navigation and overview.
+
+Regardless of the languages, ECB provides its functionalities.
+
 ## Development Environment for C/C++
 
 Below is three video on Youtude.
