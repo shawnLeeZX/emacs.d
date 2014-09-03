@@ -13,7 +13,8 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 ;; minor mode setup.
-(add-hook 'web-mode-hook 'flyspell-prog-mode)
+;; Do not know why, but comment it out flyspell works.
+;; (add-hook 'web-mode-hook 'flyspell-prog-mode)
 (add-hook 'web-mode-hook 'comment-auto-fill)
 
 ;; Enable autopair
