@@ -48,6 +48,7 @@
 (require 'init-ibuffer)
 (require 'init-flycheck)
 (require 'init-highlight-indentation)
+(require 'init-ecb)
 
 (require 'init-recentf)
 (require 'init-ido)
@@ -117,8 +118,6 @@
 (when *is-a-mac*
   (require-package 'osx-location))
 (require-package 'regex-tool)
-
-(require-package 'ecb)
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
