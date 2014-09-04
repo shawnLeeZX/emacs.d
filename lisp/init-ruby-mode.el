@@ -1,28 +1,30 @@
 ;;; Basic ruby setup
-(require-package 'enh-ruby-mode)
+;; enhance ruby mode does not work with autopair.
+;; (require-package 'enh-ruby-mode)
+(require-package 'ruby-mode)
 (require-package 'ruby-hash-syntax)
 
-(add-auto-mode 'enh-ruby-mode
+(add-auto-mode 'ruby-mode
                "Rakefile\\'" "\\.rake\\'" "\\.rxml\\'"
                "\\.rjs\\'" "\\.irbrc\\'" "\\.pryrc\\'" "\\.builder\\'" "\\.ru\\'"
                "\\.gemspec\\'" "Gemfile\\'" "Kirkfile\\'")
 
 (setq ruby-use-encoding-map nil)
 
-(after-load 'enh-ruby-mode
-  (define-key enh-ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
-  (define-key enh-ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
+(after-load 'ruby-mode
+  (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+  (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
 
   ;; Stupidly the non-bundled ruby-mode isn't a derived mode of
   ;; prog-mode: we run the latter's hooks anyway in that case.
-  (add-hook 'enh-ruby-mode-hook
+  (add-hook 'ruby-mode-hook
             (lambda ()
               (unless (derived-mode-p 'prog-mode)
                 (run-hooks 'prog-mode-hook)))))
 
-(add-hook 'enh-ruby-mode-hook 'subword-mode)
-(add-hook 'enh-ruby-mode-hook 'flyspell-prog-mode)
-(add-hook 'enh-ruby-mode-hook 'comment-auto-fill)
+(add-hook 'ruby-mode-hook 'subword-mode)
+(add-hook 'ruby-mode-hook 'flyspell-prog-mode)
+(add-hook 'ruby-mode-hook 'comment-auto-fill)
 
 
 ;; TODO: hippie-expand ignoring : for names in ruby-mode
@@ -54,7 +56,7 @@
 ;;; Robe
 (require-package 'robe)
 (after-load 'ruby-mode
-  (add-hook 'enh-ruby-mode-hook 'robe-mode))
+  (add-hook 'ruby-mode-hook 'robe-mode))
 (after-load 'robe
   (add-hook 'robe-mode-hook
             (lambda ()
