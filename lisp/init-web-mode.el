@@ -15,7 +15,7 @@
 ;; minor mode setup.
 ;; Do not know why, but comment it out flyspell works.
 ;; (add-hook 'web-mode-hook 'flyspell-prog-mode)
-(add-hook 'web-mode-hook 'comment-auto-fill)
+;; (add-hook 'web-mode-hook 'comment-auto-fill)
 
 ;; Enable autopair
 (setq web-mode-extra-auto-pairs
