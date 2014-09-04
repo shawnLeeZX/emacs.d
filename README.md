@@ -126,6 +126,27 @@ gem install rubocop ruby-lint
 
 TODO: make flycheck for `.erb` files work.
 
+## IDE for Javascript
+
+Tweak purcell's config letting it only suit with emacs 24+.
+
+[js2-mode](https://code.google.com/p/js2-mode/): An improved JavaScript
+mode for GNU Emacs.
+
+[ac-js2](https://github.com/ScottyB/ac-js2): An attempt at context
+sensitive auto-completion for Javascript in Emacs using js2-mode's
+parser and Skewer-mode (requires Emacs 24.3).
+
+[coffee-mode](https://github.com/defunkt/coffee-mode): An Emacs major
+mode for CoffeeScript and IcedCoffeeScript.
+
+[skewer-mode](https://github.com/skeeto/skewer-mode): Provides live
+interaction with JavaScript, CSS, and HTML in a web
+browser. Expressions are sent on-the-fly from an editing buffer to be
+evaluated in the browser, just like Emacs does with an inferior Lisp
+process in Lisp modes. Call `run-skewer` to start server in the brower
+to enable its functionalities.
+
 ## Utilities
 
 A bunch of utilities for ease of usage is added in
