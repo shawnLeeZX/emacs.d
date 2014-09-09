@@ -54,6 +54,15 @@ informational windows that allow for easy source code navigation and overview.
 
 Regardless of the languages, ECB provides its functionalities.
 
+## Projectile
+
+[Projectile](https://github.com/bbatsov/projectile) provides easy
+project management and navigation. The concept of a project is pretty
+basic - just a folder containing special file. Currently `git`,
+`mercurial`, `darcs` and `bazaar` repos are considered projects by
+default. So are `lein`, `maven`, `sbt`, `scons`, `rebar` and `bundler`
+projects.
+
 ## Development Environment for C/C++
 
 Below is three video on Youtude.
