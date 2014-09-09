@@ -94,6 +94,22 @@ For screen, change `.screenrc`
 ```bash
 maptimeout 5
 ```
+### Magit
+
+[magit](https://github.com/magit/magit) is a git extension for
+integrating git with emacs. The default works well. However, the
+highlight current line feature is pretty annoying because it will make
+it hard to see the actual code while diffing. The following code will
+disable highlighting.
+
+```lisp
+;; Make magit do not hightligh the line where the cursor is, since it
+;; will make the diff code unclear.
+(defface magit-item-highlight
+  '((t :inherit background))
+  "Face for highlighting the current item."
+  :group 'magit-faces)
+```
 
 ## IDE for C/C++
 
@@ -212,3 +228,4 @@ A bunch of utilities for ease of usage is added in
 * I recommend a product called
   [teambition](https://www.teambition.com/) to replace the org-mode to
   GET THINGS DONE. Its has a web interface and app on smartphone.
+

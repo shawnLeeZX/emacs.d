@@ -36,6 +36,13 @@
 (after-load 'magit
   (diminish 'magit-auto-revert-mode))
 
+;; Added by Shawn.
+;; Make magit do not hightligh the line where the cursor is, since it
+;; will make the diff code unclear.
+(defface magit-item-highlight
+  '((t :inherit background))
+  "Face for highlighting the current item."
+  :group 'magit-faces)
 
 (when *is-a-mac*
   (after-load 'magit
