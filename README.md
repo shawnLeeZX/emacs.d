@@ -1,4 +1,4 @@
-# Learning Emacs in 3 Days
+# Configuration for emacs
 I forked this [emacs.d](https://github.com/purcell/emacs.d) to make my own.
 
 You could setup your own following the tutorial
@@ -9,7 +9,9 @@ will be described.
 
 If you find this repo useful, please give it a star!
 
-## Package Management
+## General Extensions
+
+### Package Management
 
 Emacs has better package management mechanism for extensions than
 vim. I use `package.el`. See this
@@ -17,7 +19,7 @@ vim. I use `package.el`. See this
 
 Note that this is not an added functionalities.
 
-## Copy Paste
+### Copy Paste
 I use emacs in a termial, and by default inter-program copy and paste
 does not work.
 
@@ -28,24 +30,24 @@ talks about how copy and paste works in emacs, or more generally under linux.
 To enable inter-program copy and paste, see this
 [blog](http://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/).
 
-## Swap Ctrl and Caps Lock
+### Swap Ctrl and Caps Lock
 Make `<Caps Lock>` a `<Ctrl>` key to speed up typing. See
 [here](http://www.emacswiki.org/emacs/MovingTheCtrlKey).
 
-## Manage Extra with git
+### Manage Extra with git
 Occasionally, you cannot find extensions you want in the package
 management system. To manage the extensions you download, use git. And
 to keep those extensions in their git repo will ease the process of
 updating. To make this work, some knowledge of git submodule will be
 helpful. See this [post](http://longair.net/blog/2010/06/02/git-submodules-explained/).
 
-## Autopair
+### Autopair
 
 Beyond the electric-pair mode used in purcell's configuration, I use
 [autopair](https://github.com/capitaomorte/autopair) to make the auto
 pairing more functional.
 
-## ECB
+### ECB
 
 [ECB](http://ecb.sourceforge.net/) stands for "Emacs Code Browser". While Emacs
 already has good editing support for many modes, its browsing support is
@@ -54,7 +56,7 @@ informational windows that allow for easy source code navigation and overview.
 
 Regardless of the languages, ECB provides its functionalities.
 
-## Projectile
+### Projectile
 
 [Projectile](https://github.com/bbatsov/projectile) provides easy
 project management and navigation. The concept of a project is pretty
@@ -63,15 +65,7 @@ basic - just a folder containing special file. Currently `git`,
 default. So are `lein`, `maven`, `sbt`, `scons`, `rebar` and `bundler`
 projects.
 
-## Development Environment for C/C++
-
-Below is three video on Youtude.
-
-* [Emacs as a C/C++ Editor/IDE (Part I): auto-complete, yasnippet, and autoplete](https://www.youtube.com/watch?v=HTUE03LnaXA)
-* [Emacs as a C/C++ Editor/IDE (Part 2): iedit, flymake-google-cpplint, google-c-style](https://www.youtube.com/watch?v=r_HW0EB67eY)
-* [Emacs as a C/C++ Editor/IDE (Part 3): Installing CEDET mode for true intellisense](https://www.youtube.com/watch?v=Ib914gNr0ys)
-
-## Evil
+### Evil -- combine the best of emacs and vim.
 
 If you are also a vimmer try [evil](http://www.emacswiki.org/emacs/Evil).
 
@@ -91,9 +85,45 @@ For screen, change `.screenrc`
 maptimeout 5
 ```
 
+## IDE for C/C++
+
+Below is three video on Youtude.
+
+* [Emacs as a C/C++ Editor/IDE (Part I): auto-complete, yasnippet, and autoplete](https://www.youtube.com/watch?v=HTUE03LnaXA)
+* [Emacs as a C/C++ Editor/IDE (Part 2): iedit, flymake-google-cpplint, google-c-style](https://www.youtube.com/watch?v=r_HW0EB67eY)
+* [Emacs as a C/C++ Editor/IDE (Part 3): Installing CEDET mode for true intellisense](https://www.youtube.com/watch?v=Ib914gNr0ys)
+
+## IDE for Python
+
+### Jedi
+
+[Jedi.el](https://github.com/tkf/emacs-jedi) is a Python
+auto-completion package for Emacs. It aims at helping your Python
+coding in a non-destructive way. It also helps you to find information
+about Python objects, such as docstring, function arguments and code
+location.
+
+Note that it use auto-complete extension as its auto completion
+interface,  not replace it as seems in the first sight.
+
+Jedi need some configuration to work well, for instance, including
+code of your project. See code for more info.
+
+I am also trying to use robemacs to do code completion and
+refactoring, but the setting up process is just too annoy which makes
+me realize why Jedi exists -- to remove the need for external tools.
+
+### Flycheck
+
+To make flycheck work with python, `pylint` needs to be installed:
+
+```bash
+sudo pip install pylint
+```
+
 ## IDE for R.
 [Emacs Speaks Statistics (ESS)](http://ess.r-project.org/) is an
-add-on package for emacs text editors such as GNU Emacs and XEmacs. It
+add-on package for emacs text editors such as GNU Emacs and XEmacs.It
 is designed to support editing of scripts and interaction with various
 statistical analysis programs such as R, S-Plus, SAS, Stata and JAGS.
 
