@@ -49,6 +49,7 @@
 (require 'init-flycheck)
 (require 'init-highlight-indentation)
 (require 'init-ecb)
+(require 'init-projectile)
 
 (require 'init-recentf)
 (require 'init-ido)
