@@ -12,4 +12,12 @@
   "C-a" 'select-all
 )
 
+;; window modifications
+;; Do not work
+;; (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+;; (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+;; (global-set-key (kbd "S-C-<up>") 'shrink-window)
+;; (global-set-key (kbd "S-C-<down>") 'enlarge-window)
+
+
 (provide 'init-key-binding)
