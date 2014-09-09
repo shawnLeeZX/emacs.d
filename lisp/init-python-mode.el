@@ -30,7 +30,7 @@
 ;;; Config for python.el.
 (setq
  python-shell-interpreter "ipython"
- python-shell-interpreter-args "--gui=wx --matplotlib=wx --colors=Linux"
+ ;; python-shell-interpreter-args "--gui=wx --matplotlib=wx --colors=Linux"
  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
  python-shell-completion-setup-code
