@@ -19,4 +19,10 @@
 ;; Enable flyspell mode for word checking.
 (require 'init-language-tool)
 
+;; Display a visual indicator for fill column width.
+(require 'fill-column-indicator)
+(define-global-minor-mode
+  global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode t)
+
 (provide 'init-local)

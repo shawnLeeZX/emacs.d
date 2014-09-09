@@ -41,6 +41,16 @@ to keep those extensions in their git repo will ease the process of
 updating. To make this work, some knowledge of git submodule will be
 helpful. See this [post](http://longair.net/blog/2010/06/02/git-submodules-explained/).
 
+### Display a visual fill column indicator
+
+```lisp
+;; Display a visual indicator for fill column width.
+(require 'fill-column-indicator)
+(define-global-minor-mode
+  global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode t)
+```
+
 ### Autopair
 
 Beyond the electric-pair mode used in purcell's configuration, I use
