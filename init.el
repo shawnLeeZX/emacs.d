@@ -91,6 +91,7 @@
 (require 'init-ruby-mode)
 (require 'init-rails)
 (require 'init-sql)
+(require 'init-octave)
 
 (require 'init-paredit)
 (require 'init-lisp)

@@ -212,6 +212,12 @@ evaluated in the browser, just like Emacs does with an inferior Lisp
 process in Lisp modes. Call `run-skewer` to start server in the brower
 to enable its functionalities.
 
+## IDE for Octave.
+
+Octave has support for emacs.
+
+TODO: `run-octave` stuck called.
+
 ## Utilities
 
 A bunch of utilities for ease of usage is added in
