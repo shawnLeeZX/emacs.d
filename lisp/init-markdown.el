@@ -6,4 +6,7 @@
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 
+;; TODO: Fix tab for autocompletion.
+(add-hook 'markdown-mode-hook 'sanityinc/never-indent)
+
 (provide 'init-markdown)

@@ -1,5 +1,6 @@
 (require-package 'auto-complete)
 (require 'auto-complete-config)
+(ac-config-default)
 (global-auto-complete-mode t)
 
 ;;----------------------------------------------------------------------------
@@ -21,9 +22,6 @@
 	     (fboundp 'auto-complete-mode)
 	     auto-complete-mode)
     (auto-complete)))
-
-(defun sanityinc/never-indent ()
-  (set (make-local-variable 'indent-line-function) (lambda () 'noindent)))
 
 (defun set-auto-complete-as-completion-at-point-function ()
   (setq completion-at-point-functions

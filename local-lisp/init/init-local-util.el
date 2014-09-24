@@ -38,6 +38,7 @@
       )
     )
     ;; Attach callbacks to hooks
+
     (setq interprogram-cut-function 'xsel-cut-function)
     (setq interprogram-paste-function 'xsel-paste-function)
     ;; Idea from
@@ -72,5 +73,20 @@
          (buffer-list)
          )
 )
+
+;; Turn off indentation binded with tab.
+;; ===============
+;; Function to indent the current line.  This function will be called
+;; with no arguments.  If it is called somewhere where
+;; auto-indentation cannot be done (e.g. inside a string), the
+;; function should simply return `noindent'.  Setting this function is
+;; all you need to make TAB indent appropriately.  Don't rebind TAB
+;; unless you really need to.
+;;
+;; The function defined here use anomynous function to return the
+;; 'noindent to disable the indentation functionality of tab.
+(defun sanityinc/never-indent ()
+  (set (make-local-variable 'indent-line-function) (lambda () 'noindent)))
+
 
 (provide `init-local-util)
