@@ -218,6 +218,10 @@ Octave has support for emacs.
 
 TODO: `run-octave` stuck called.
 
+## Writing Markdown.
+See this
+[post](http://shawnleezx.github.io/blog/2014/09/24/writing-markdown-with-autocomplete-and-math-equation-in-emacs/).
+
 ## Utilities
 
 A bunch of utilities for ease of usage is added in
