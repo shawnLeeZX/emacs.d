@@ -1,3 +1,7 @@
+;; General config..
+(add-hook 'emacs-lisp-mode-hook 'comment-auto-fill)
+
+;; Config by purcell begins.
 (require-package 'elisp-slime-nav)
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
   (add-hook hook 'elisp-slime-nav-mode))
