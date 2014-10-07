@@ -36,7 +36,7 @@
 
 ;; Only do automatically vertical split.
 (setq split-height-threshold nil)
-(setq split-width-threshold 160)
+(setq split-width-threshold 90)
 
 (require 'init-powerline)
 
