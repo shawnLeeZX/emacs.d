@@ -34,6 +34,10 @@
 ; size to reflect it
 (size-indication-mode 1)
 
+;; Only do automatically vertical split.
+(setq split-height-threshold nil)
+(setq split-width-threshold 80)
+
 (require 'init-powerline)
 
 (provide 'init-appearance)
