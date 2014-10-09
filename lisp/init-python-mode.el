@@ -4,6 +4,7 @@
 (require 'python)
 
 ;;; Set up  additional filetype mapping.
+;; ===================================================================
 (setq auto-mode-alist
       (append '(("SConstruct\\'" . python-mode)
 		("SConscript\\'" . python-mode))
@@ -28,6 +29,7 @@
 ;; (setq ropemacs-enable-autoimport t)
 
 ;;; Config for python.el.
+;; ===================================================================
 (setq
  python-shell-interpreter "ipython"
  ;; python-shell-interpreter-args "--gui=wx --matplotlib=wx --colors=Linux"
@@ -43,6 +45,7 @@
 
 ;;; Jedi
 ;; Config for jedi.
+;; ===================================================================
 (add-to-list 'ac-sources 'ac-source-jedi-direct)
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
