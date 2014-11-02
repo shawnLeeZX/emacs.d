@@ -3,6 +3,7 @@
 
 ;; Config by purcell begins.
 (require-package 'elisp-slime-nav)
+(require 'elisp-slime-nav)
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
   (add-hook hook 'elisp-slime-nav-mode))
 
@@ -28,6 +29,7 @@
   (define-key emacs-lisp-mode-map (kbd "C-x C-e") 'sanityinc/eval-last-sexp-or-region))
 
 (require-package 'ipretty)
+(require 'ipretty)
 (ipretty-mode 1)
 
 
@@ -76,6 +78,7 @@
 ;; ----------------------------------------------------------------------------
 
 (require-package 'auto-compile)
+(require 'auto-compile)
 (auto-compile-on-save-mode 1)
 (auto-compile-on-load-mode 1)
 
@@ -114,6 +117,7 @@
 ;; ----------------------------------------------------------------------------
 (require-package 'rainbow-delimiters)
 (require-package 'redshank)
+(require 'redshank)
 (after-load 'redshank
   (diminish 'redshank-mode))
 
@@ -162,6 +166,7 @@
 (add-to-list 'auto-mode-alist '("archive-contents\\'" . emacs-lisp-mode))
 
 (require-package 'cl-lib-highlight)
+(require 'cl-lib-highlight)
 (after-load 'lisp-mode
   (cl-lib-highlight-initialize))
 

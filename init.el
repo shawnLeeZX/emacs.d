@@ -71,6 +71,7 @@
 (require 'init-git)
 (require 'init-github)
 
+(require 'init-bash)
 (require 'init-cpp)
 (require 'init-r-mode)
 (require 'init-crontab)
