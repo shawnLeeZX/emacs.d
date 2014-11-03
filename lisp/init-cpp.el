@@ -8,7 +8,7 @@
 
 ;; flymake for google: make c code comply to google c coding style.
 (defun shawn:flymake-google-init ()
-  (require 'flycheck-google-cpplint)
+  (require 'flymake-google-cpplint)
   (custom-set-variables
    '(flymake-google-cpplint-command "/usr/local/bin/cpplint")
   )
