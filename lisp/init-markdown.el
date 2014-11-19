@@ -16,4 +16,14 @@
           )
 )
 
+;; Enable syntax highlighting for math.
+(setq markdown-enable-math t)
+
+;; Disable whitespace cleanup since trailing whitespace is important
+;; for indentation.
+(add-hook 'markdown-mode-hook (lambda ()
+                                (whitespace-cleanup-mode -1)
+                              )
+)
+
 (provide 'init-markdown)
