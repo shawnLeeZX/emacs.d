@@ -43,4 +43,7 @@
   )
 )
 
+;; Enable auto-complete for octave.
+(add-to-list 'ac-modes 'octave-mode)
+
 (provide 'init-octave)
