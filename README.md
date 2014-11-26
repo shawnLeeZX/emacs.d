@@ -214,9 +214,21 @@ to enable its functionalities.
 
 ## IDE for Octave.
 
-Octave has support for emacs.
+Octave has support for emacs, which is pretty great. It will do real
+auto completion and all sorts of other things.
 
-TODO: `run-octave` stuck called.
+*NOTE*
+
+I am using emacs 24.3, of which octave integration is buggy. If your
+emacs version is less than 24.4 as me:
+
+since I use ac-octave from elpa and code of ac-otave is not included
+in the git repo, you need to change source in elpa/ac-octave to make
+sure the repo works. More specifically, ac-octave will check your
+version number and if it is less than 24.4, it will try to include
+octave-inf.el. Disable the version check and always try to load the
+new octave.el.
+
 
 ## Writing Markdown.
 See this

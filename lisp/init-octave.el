@@ -53,5 +53,19 @@
 
 ;; Enable auto-complete for octave.
 (add-to-list 'ac-modes 'octave-mode)
+;; Make real autocomplete work with octave.
+;; Note that since I use ac-octave from elpa and code of ac-otave is
+;; not included in the git repo, you need to change source in
+;; elpa/ac-octave to make sure the repo works. More specifically,
+;; ac-octave will check your version number and if it is less than
+;; 24.4, it will try to include octave-inf.el. Disable the version
+;; check and always try to load the new octave.el.
+(require-package 'ac-octave)
+(require 'ac-octave)
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (add-to-list 'ac-sources 'ac-source-octave)
+          )
+)
 
 (provide 'init-octave)
