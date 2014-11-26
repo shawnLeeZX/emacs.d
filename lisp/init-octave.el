@@ -1,4 +1,12 @@
 
+;; Octave integration before 24.4 won't work. Extension of octave of
+;; emacs 24.4 is extracted into /site-lisp. If the version of emacs is
+;; not modern enough, use that.
+(when (< (string-to-number emacs-version) 24.4)
+  (require 'octave)
+)
+
+
 ;; This line tells how to modify alist. Save it for reference.
 ;; Clear other filetype mapping of .m files.
 ;; (setq auto-mode-alist (assq-delete-all "\\.m\\'" auto-mode-alist))
@@ -33,7 +41,6 @@
 ;;     ;; Preferred comment style
 ;;     (setq comment-start "// "
 ;;           comment-end "")))
-(require 'octave)
 
 (add-hook 'octave-mode-hook
   (lambda ()
