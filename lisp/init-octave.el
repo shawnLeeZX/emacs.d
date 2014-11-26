@@ -33,6 +33,7 @@
 ;;     ;; Preferred comment style
 ;;     (setq comment-start "// "
 ;;           comment-end "")))
+(require 'octave)
 
 (add-hook 'octave-mode-hook
   (lambda ()
