@@ -123,25 +123,25 @@ is chosen from your OS's preference."
       (cond
        ((string-equal system-type "windows-nt")
         (mapc
-         (lambda (fPath)
+         (lambda (file-path)
            (w32-shell-execute "open"
-                              (replace-regexp-in-string "/" "\\" fPath t t)
+                              (replace-regexp-in-string "/" "\\" file-path t t)
                               )
            )
          file-list)
         )
        ((string-equal system-type "darwin")
         (mapc
-         (lambda (fPath)
-           (shell-command (format "open \"%s\"" fPath))
+         (lambda (file-path)
+           (shell-command (format "open \"%s\"" file-path))
            )
          file-list)
         )
        ((string-equal system-type "gnu/linux")
         (mapc
-         (lambda (fPath)
+         (lambda (file-path)
            (let ((process-connection-type nil))
-             (start-process "" nil "xdg-open" fPath)
+             (start-process "" nil "xdg-open" file-path)
              )
            )
          file-list)
