@@ -96,4 +96,59 @@
    (set-frame-parameter (selected-frame) 'alpha value)
 )
 
+;;; Add command to open file using system programs.
+;; ===================================================================
+(defun open-in-external-app (&optional file)
+  "Open the current file or dired marked files in external app. The app
+is chosen from your OS's preference."
+  (interactive)
+
+  (let ( confirm
+         (file-list
+          (cond
+           ((string-equal major-mode "dired-mode") (dired-get-marked-files))
+           ((not file) (list (buffer-file-name)))
+           (file (list file))
+           )
+          )
+         )
+    
+    (setq confirm (if (<= (length file-list) 5)
+                   t
+                 (y-or-n-p "Open more than 5 files? ")
+                 )
+          )
+    
+    (when confirm
+      (cond
+       ((string-equal system-type "windows-nt")
+        (mapc
+         (lambda (fPath)
+           (w32-shell-execute "open"
+                              (replace-regexp-in-string "/" "\\" fPath t t)
+                              )
+           )
+         file-list)
+        )
+       ((string-equal system-type "darwin")
+        (mapc
+         (lambda (fPath)
+           (shell-command (format "open \"%s\"" fPath))
+           )
+         file-list)
+        )
+       ((string-equal system-type "gnu/linux")
+        (mapc
+         (lambda (fPath)
+           (let ((process-connection-type nil))
+             (start-process "" nil "xdg-open" fPath)
+             )
+           )
+         file-list)
+        )
+       )
+      )
+    )
+  )
+
 (provide `init-local-util)
