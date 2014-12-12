@@ -129,11 +129,10 @@ coding in a non-destructive way. It also helps you to find information
 about Python objects, such as docstring, function arguments and code
 location.
 
-Note that it use auto-complete extension as its auto completion
-interface,  not replace it as seems in the first sight.
-
-Jedi need some configuration to work well, for instance, including
-code of your project. See code for more info.
+The config in this repo uses this great
+[config](https://github.com/wernerandrew/jedi-starter/blob/master/jedi-starter.el)
+with minor tweak. A explanation about the code could be found
+[here](https://s3-us-west-2.amazonaws.com/emacsnyc/documents/using-emacs-as-a-python-ide.pdf).
 
 I am also trying to use robemacs to do code completion and
 refactoring, but the setting up process is just too annoy which makes
