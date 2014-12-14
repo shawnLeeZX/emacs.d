@@ -229,6 +229,22 @@ octave-inf.el. Disable the version check and always try to load the
 new octave.el.
 
 
+## IDE for LaTeX
+
+The following packages are included:
+
+* [auctex and preview-latex](http://www.gnu.org/software/auctex/), an
+  extensible package for writing, formatting and previewing TEX files,
+  is set up fully functional, which includes multiple files awareness,
+  on the fly error checking, outline minor mode, Math symbol display,
+  bundling with auto completion and more small tweak.
+* [RefTEX](http://www.gnu.org/software/auctex/reftex.html), a
+  specialized package for support of labels, references, citations,
+  and the indices in LATEX.
+* [latex-pretty-symbols](https://bitbucket.org/mortiferus/latex-pretty-symbols.el/),
+  an extension that makes emacs display unicode characters instead of
+  latex commands for a lot of the most usual symbols.
+
 ## Writing Markdown.
 See this
 [post](http://shawnleezx.github.io/blog/2014/09/24/writing-markdown-with-autocomplete-and-math-equation-in-emacs/).

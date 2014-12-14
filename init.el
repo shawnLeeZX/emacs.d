@@ -94,6 +94,7 @@
 (require 'init-rails)
 (require 'init-sql)
 (require 'init-octave)
+(require 'init-latex)
 
 (require 'init-paredit)
 (require 'init-lisp)
