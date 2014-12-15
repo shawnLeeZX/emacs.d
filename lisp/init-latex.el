@@ -25,13 +25,19 @@
 ;; Some function will not be available before LaTeX-mode is fully
 ;; loaded or is overrided. Add them in the after load hook.
 (add-hook 'LaTeX-mode-hook (lambda ()
-                            ; Output pdf by default.
+                            ;; Output pdf by default.
                             (TeX-global-PDF-mode t)
-                            ; Something may close autocomplete mode,
-                            ; enable it;
+                            ;; Something may close autocomplete mode,
+                            ;; enable it;
                             (auto-complete-mode 1)
-                            ; Turn on outline minor mode.
+                            ;; Turn on outline minor mode.
                             (outline-minor-mode 1)
+                            ;; Turn on auto fill.
+                            (turn-on-auto-fill)
+                            ;; Change preferred comment style of nerdcommenter.
+                            (setq comment-start "%%"
+                                  comment-end ""
+                            )
                             )
           )
 
