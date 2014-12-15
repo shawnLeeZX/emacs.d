@@ -38,6 +38,11 @@
 (setq split-height-threshold nil)
 (setq split-width-threshold 90)
 
+;; Highligh TODO etc.
+(require-package 'fic-mode)
+(require 'fic-mode)
+(add-hook 'after-change-major-mode-hook 'fic-mode)
+
 (require 'init-powerline)
 
 (provide 'init-appearance)
