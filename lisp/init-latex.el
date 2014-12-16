@@ -54,9 +54,17 @@
 ;;; ================================================================
 ;; No configuration is needed. Refer to manual for usage.
 
-;; Display Math symbol in Unicode directly.
+;;; Display Math symbol in Unicode directly.
+;;; ================================================================
 (require-package 'latex-pretty-symbols)
 (require 'latex-pretty-symbols)
+
+;;; General Config
+;;; ================================================================
+;; Sometimes Emacs cannnot set PATH env variable right. Set it
+;; manually. Here is how to:
+;; (setenv "PATH"
+;;         (concat "/usr/local/bin:/usr/texbin:" (getenv "PATH")))
 
 
 (provide 'init-latex)
