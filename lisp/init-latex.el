@@ -9,7 +9,7 @@
 (setq-default TeX-master nil)
 
 (setq TeX-engine 'xetex) ; Use xelatex as default.
-(setq TeX-show-compilation t) ; Show compilation information aside.
+; (setq TeX-show-compilation t) ; Show compilation information aside.
 (setq TeX-save-query nil) ; Save file by default when compiling.
 
 ;; Enable math-mode at startup.
