@@ -18,7 +18,11 @@
 (add-hook 'octave-mode-hook
           (lambda ()
             (abbrev-mode 1)
-            (auto-fill-mode 1)
+            ;; This line does not behave as expected. The comment will
+            ;; not be auto-filled and the code will be. I guess some
+            ;; config in the extensions makes it this way. TODO Try
+            ;; figure it out in the future.
+            (comment-auto-fill)
             (if (eq window-system 'x)
                 (font-lock-mode 1)
             )
