@@ -95,6 +95,7 @@
 (require 'init-sql)
 (require 'init-octave)
 (require 'init-latex)
+(require 'init-protobuf)
 
 (require 'init-paredit)
 (require 'init-lisp)
