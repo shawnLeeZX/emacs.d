@@ -203,4 +203,13 @@ May be necessary for some GUI environments (e.g., Mac OS X)")
 ;; Use custom keybinds
 (add-hook 'python-mode-hook 'jedi-config:setup-keys)
 
+;;; General settings.
+;; ===================================================================
+;; The general setting is put last is because that the function that
+;; adds to the hook lastly is called lastly. So it will be
+;; effective. Otherwise, if it is added at the beginning of this file,
+;; auto-fill-mode will not be enabled.
+(add-hook 'python-mode-hook 'comment-auto-fill)
+
+
 (provide 'init-python-mode)
