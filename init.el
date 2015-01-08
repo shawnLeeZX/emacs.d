@@ -96,6 +96,7 @@
 (require 'init-octave)
 (require 'init-latex)
 (require 'init-protobuf)
+(require 'init-caffe)
 
 (require 'init-paredit)
 (require 'init-lisp)
