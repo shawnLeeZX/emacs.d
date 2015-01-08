@@ -134,6 +134,9 @@ The config in this repo uses this great
 with minor tweak. A explanation about the code could be found
 [here](https://s3-us-west-2.amazonaws.com/emacsnyc/documents/using-emacs-as-a-python-ide.pdf).
 
+Type `M-x jedi:install-server` to initialize when using jedi for the
+first time.
+
 I am also trying to use robemacs to do code completion and
 refactoring, but the setting up process is just too annoy which makes
 me realize why Jedi exists -- to remove the need for external tools.
