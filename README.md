@@ -51,6 +51,14 @@ helpful. See this [post](http://longair.net/blog/2010/06/02/git-submodules-expla
 (global-fci-mode t)
 ```
 
+### Auto header insertion
+
+[header2.el](http://www.emacswiki.org/emacs/header2.el) is used to automatically
+create file headers.
+
+Notice that you need to manually add your contact in the header by changing the
+source code. I decided to work this way ...
+
 ### Autopair
 
 Beyond the electric-pair mode used in purcell's configuration, I use
