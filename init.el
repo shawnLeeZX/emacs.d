@@ -63,6 +63,7 @@
 (require 'init-sessions)
 (require 'init-fonts)
 (require 'init-mmm)
+(require 'init-auto-header)
 
 (require 'init-editing-utils)
 
