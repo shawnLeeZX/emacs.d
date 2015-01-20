@@ -11,6 +11,6 @@
 (require 'init-key-binding)
 ;; Enable flyspell mode for word checking.
 (require 'init-language-tool)
-(require 'ece-projects)
+(require 'ede-projects)
 
 (provide 'init-local)
