@@ -3,34 +3,41 @@
 (ac-config-default)
 (global-auto-complete-mode t)
 
-;;----------------------------------------------------------------------------
-;; Use Emacs' built-in TAB completion hooks to trigger AC (Emacs >= 23.2)
-;;----------------------------------------------------------------------------
-(setq tab-always-indent 'complete)  ;; use 't when auto-complete is disabled
+;; Controls the operation of the TAB key.  If t, hitting TAB always just indents
+;; the current line.  If nil, hitting TAB indents the current line if point is
+;; at the left margin or in the line's indentation, otherwise it inserts a
+;; "real" TAB character.  If `complete', TAB first tries to indent the current
+;; line, and if the line was already indented, then try to complete the thing at
+;; point.
+(setq tab-always-indent 'complete)
+
+;; This is a style added by sanityinc, did not try to figure out its meaning yet.
 (add-to-list 'completion-styles 'initials t)
 ;; Stop completion-at-point from popping up completion buffers so eagerly
 (setq completion-cycle-threshold 5)
 
-;; TODO: find solution for php, haskell and other modes where TAB always does something
-
+;; c-tab-always-indent:
+;; If t, hitting TAB always just indents the current line.  If nil, hitting TAB
+;; indents the current line if point is at the left margin or in the line's
+;; indentation, otherwise it calls `c-insert-tab-function' to insert a `real'
+;; tab character.
+;; indent-for-tab-command:
+;; Indent the current line or region, or insert a tab, as appropriate.
 (setq c-tab-always-indent nil
       c-insert-tab-function 'indent-for-tab-command)
 
-;; hook AC into completion-at-point
-(defun sanityinc/auto-complete-at-point ()
-  (when (and (not (minibufferp))
-	     (fboundp 'auto-complete-mode)
-	     auto-complete-mode)
-    (auto-complete)))
+;; Auto start auto completion after typing three characters.
+(setq ac-auto-start 3)
+;; Do not ignore case.
+(setq ac-ignore-case nil)
 
-(defun set-auto-complete-as-completion-at-point-function ()
-  (setq completion-at-point-functions
-        (cons 'sanityinc/auto-complete-at-point
-              (remove 'sanityinc/auto-complete-at-point completion-at-point-functions))))
+;; This is a smart mechanism provided by auto-complete to use tab -- only when
+;; user has typed characters, pressing TAB is viewed as trying get
+;; completion. Otherwise, TAB is in its normal meaning, for instance, inserting
+;; tab character.
+(ac-set-trigger-key "TAB")
 
-(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
-
-
+;; Add modes that would use autocompletion.
 (set-default 'ac-sources
              '(ac-source-imenu
                ac-source-dictionary
@@ -51,7 +58,6 @@
                 web-mode
                 inferior-python-mode))
   (add-to-list 'ac-modes mode))
-
 
 ;; Exclude very large buffers from dabbrev
 (defun sanityinc/dabbrev-friend-buffer (other-buffer)
