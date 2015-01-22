@@ -1,7 +1,12 @@
 (require-package 'ecb)
 
 ;; Change ecb layout.
-(setq ecb-layout-name "leftright1")
+;; This is the layout created using ecb-create-new-layout, choosing type
+;; leftright and let the left one be speedbar and the right one be method. Since
+;; I did not find out how the new layout is stored by ecb yet and did not figure
+;; out how to write it using macro, it is possible you have to create the new
+;; layout each time you setting up emacs on a new machine.
+(setq ecb-layout-name "shawn-layout")
 
 ;; How to change ecb windows width.
 ;;
