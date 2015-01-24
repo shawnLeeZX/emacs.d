@@ -35,7 +35,12 @@
 ;; user has typed characters, pressing TAB is viewed as trying get
 ;; completion. Otherwise, TAB is in its normal meaning, for instance, inserting
 ;; tab character.
-(ac-set-trigger-key "TAB")
+;; <tab> is bound to the even you are pressing tab key while "TAB" is one acsii
+;; number that corresponding to tab. When the tab key is pressed, it is the
+;; software to determine whether "TAB" is sent out or not. And yasnippet does
+;; some trick, if we want autocomplete to work in whatever situation, it is
+;; bettern we bind it to the actual key pressing event.
+(ac-set-trigger-key "<tab>")
 
 ;; Add modes that would use autocompletion.
 (set-default 'ac-sources
