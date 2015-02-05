@@ -61,7 +61,8 @@
                 sql-interactive-mode
                 inferior-emacs-lisp-mode
                 web-mode
-                inferior-python-mode))
+                inferior-python-mode
+                conf-mode conf-unix-mode conf-colon-mode))
   (add-to-list 'ac-modes mode))
 
 ;; Exclude very large buffers from dabbrev
