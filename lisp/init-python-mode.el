@@ -210,6 +210,18 @@ May be necessary for some GUI environments (e.g., Mac OS X)")
 ;; effective. Otherwise, if it is added at the beginning of this file,
 ;; auto-fill-mode will not be enabled.
 (add-hook 'python-mode-hook 'comment-auto-fill)
+;; Add environment header to script.
+;; add-hook function does not work, so I use the lower level add-to-list.
+;; TODO(Shuai) figure out how to call extern program and parse it output.
+(defsubst python-header-shell ()
+  "Insert #!/usr/bin/env python"
+  (insert "#!/usr/bin/env python\n"))
+
+(add-hook 'python-mode-hook (lambda ()
+    (add-to-list 'make-header-hook 'python-header-shell)
+                              ))
+
+
 
 
 (provide 'init-python-mode)
