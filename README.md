@@ -151,6 +151,14 @@ me realize why Jedi exists -- to remove the need for external tools.
 
 ### Flycheck
 
+To make flycheck work with python, `flake8` needs to be installed:
+
+```bash
+sudo pip install flake8
+```
+Previously, I used `pylint`, however, it makes a bunch of error when dealing
+with external python library. So I switched.
+
 To make flycheck work with python, `pylint` needs to be installed:
 
 ```bash
