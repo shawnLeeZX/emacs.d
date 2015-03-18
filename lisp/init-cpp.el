@@ -1,4 +1,15 @@
-;;; Config for c/cpp mode.
+;;; init-cpp.el -- Config for c/cpp mode.
+
+;;; Commentary:
+
+;;; Syntax checker.
+;; ============================================================================
+;; It is quite confusing to have more than one syntax checker in the
+;; configuration file.  For overall syntax checking, this repo uses flycheck.
+;; However, since the package flymake-google-cpplint uses flymake, So flymake
+;; is also included here.  Note that syntax checker does conflict with each
+;; other.
+
 (require-package 'flymake-google-cpplint)
 (require-package 'flymake-cursor)
 (require-package 'google-c-style)
@@ -8,7 +19,10 @@
 ;; Autocomplete for c headers.
 (require 'init-auto-complete-c-headers)
 
-;; flymake for google: make c code comply to google c coding style.
+;; make c++ code comply to google c++ coding style.  This package plays a role
+;; as the glue between the cpplint.py, which is a python program to check the
+;; code conforming to the code guide written by google, and Emacs.  It calls
+;; cpplint.py and display the result in Emacs.
 (defun shawn:flymake-google-init ()
   (require 'flymake-google-cpplint)
   (custom-set-variables
@@ -20,7 +34,17 @@
 (add-hook 'c-mode-hook 'shawn:flymake-google-init)
 (add-hook 'c++-mode-hook 'shawn:flymake-google-init)
 
+;; The author of flymake-google-cpplint says that flymake-google-cpplint does
+;; not support c source files.  However, after some simple check, I found
+;; flymake-google-cpplint works for c-mode as well.  But anyway, we install
+;; google-c-style to deal with the c source files.  The following lines
+;; activate the mode.
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+;; ============================================================================
+
 ;;; Cedet
+;; ============================================================================
 ;; Start semantic mode.
 (semantic-mode 1)
 ;; TODO(Shuai) semantic model also works for a number of other languages,
@@ -50,6 +74,10 @@
 
 (add-hook 'c-mode-common-hook 'shawn:enable-c/cpp-semantic)
 (add-hook 'c-mode-common-hook 'semantic-config:setup-keys)
+;; ============================================================================
+
+;;; General config.
+;; ============================================================================
 (add-hook 'c-mode-common-hook 'comment-auto-fill)
 (add-hook 'c-mode-common-hook 'flyspell-prog-mode)
 
