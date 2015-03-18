@@ -1126,6 +1126,7 @@ the completion or nil if canceled by the user."
 
 (defconst doxymacs-JavaDoc-file-comment-template
  '("/**" > n
+   " * Copyright " (substring (current-time-string) -4) > n
    " * " (doxymacs-doxygen-command-char) "file   "
    (if (buffer-file-name)
        (file-name-nondirectory (buffer-file-name))
