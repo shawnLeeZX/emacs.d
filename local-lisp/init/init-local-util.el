@@ -173,4 +173,18 @@ is chosen from your OS's preference."
    (get-buffers-matching-mode major-mode)
    (car (occur-read-primary-args))))
 
+;;; Utility to insert a seperator line.
+;; ===================================================================
+(defun insert-separator ()
+  "Insert equal sign till reaching the fill width."
+  (interactive)
+
+  ;; Note on ?= :
+  ;; A character is a Lisp object which represents a single character of
+  ;; text. In Emacs Lisp, characters are simply integers; whether an integer is
+  ;; a character or not is determined only by how it is used.
+  ;; Append a question mark before a char is to indicate this is a char.
+  (insert (make-string (- fill-column (current-column)) ?=))
+  )
+
 (provide `init-local-util)
