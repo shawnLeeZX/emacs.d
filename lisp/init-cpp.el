@@ -76,6 +76,21 @@
 (add-hook 'c-mode-common-hook 'semantic-config:setup-keys)
 ;; ============================================================================
 
+;;; Doxymacs to insert doxygen comment.
+;; ============================================================================
+(add-hook 'c-mode-common-hook
+  (lambda ()
+    (require 'doxymacs)
+    (doxymacs-mode t)
+    (doxymacs-font-lock)
+    ;; C++ style is ugly. Do not use it.
+    ;; (if (eq major-mode 'java-mode)
+    ;;     (setq doxymacs-doxygen-style "JavaDoc")
+    ;;   (setq doxymacs-doxygen-style "C++")
+    ;; )
+    )
+  )
+
 ;;; General config.
 ;; ============================================================================
 (add-hook 'c-mode-common-hook 'comment-auto-fill)
