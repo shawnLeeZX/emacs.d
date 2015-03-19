@@ -26,8 +26,9 @@
 (setq c-tab-always-indent nil
       c-insert-tab-function 'indent-for-tab-command)
 
-;; Auto start auto completion after typing three characters.
-(setq ac-auto-start 3)
+;; Disable auto start since it always finishes the first candidate which is
+;; awkward to use.
+(setq ac-auto-start nil)
 ;; Do not ignore case.
 (setq ac-ignore-case nil)
 
