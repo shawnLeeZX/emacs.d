@@ -3,7 +3,7 @@
 
 ;; Add bash header at the beginning.
 (add-hook 'sh-mode-hook (lambda ()
-    (add-to-list 'make-header-hook 'header-shell)
+    (add-hook 'make-header-hook 'header-shell)
                           ))
 
 (provide 'init-bash)

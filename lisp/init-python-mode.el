@@ -218,8 +218,9 @@ May be necessary for some GUI environments (e.g., Mac OS X)")
   (insert "#!/usr/bin/env python\n"))
 
 (add-hook 'python-mode-hook (lambda ()
-    (add-to-list 'make-header-hook 'python-header-shell)
-                              ))
+    (add-hook 'make-header-hook 'python-header-shell)
+    )
+          )
 
 
 

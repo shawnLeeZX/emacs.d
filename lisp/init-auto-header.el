@@ -34,42 +34,28 @@
 
 ;; Redefine header content here.
 (setq make-header-hook '(
-                         ;;header-mode-line
                          header-copyright
                          header-blank
                          header-file-name
-                         ;; header-description
-                         ;;header-status
                          header-author
                          header-contact
-                         ;; header-maintainer
                          header-creation-date
-                         ;;header-rcs-id
-                         ;; header-version
                          header-pkg-requires
-                         ;;header-sccs
                          header-modification-date
                          header-modification-author
                          header-update-count
-                         ;; header-url
-                         ;; header-doc-url
-                         ;; header-keywords
-                         ;; header-compatibility
                          header-blank
                          header-lib-requires
-                         ;; header-end-line
                          header-commentary
                          header-blank
                          header-blank
                          header-blank
-                         ;; header-end-line
                          header-code
                          header-eof
                          )
       )
-;; (setq make-header-hook '(
-;;                          header-commentary
-;;                          )
-;;       )
+
+;; Since each mode would have its own header, such variable should be local.
+(make-variable-buffer-local 'make-header-hook)
 
 (provide 'init-auto-header)
