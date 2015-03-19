@@ -54,7 +54,7 @@ at the beggining of the new line if inside of a comment."
             (insert "* ")
             )
         ;; else insert only new-line
-        (newline)
+        (newline-and-indent)
         )
       )
       )
