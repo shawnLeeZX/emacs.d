@@ -49,7 +49,7 @@
 (add-hook 'octave-mode-hook
   (lambda ()
     ;; Preferred comment style
-    (setq comment-start "%%"
+    (setq comment-start "%% "
           comment-end ""
     )
   )
