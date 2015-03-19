@@ -76,8 +76,9 @@
 (add-hook 'c-mode-common-hook 'semantic-config:setup-keys)
 ;; ============================================================================
 
-;;; Doxymacs to insert doxygen comment.
+;;; Comment related.
 ;; ============================================================================
+;; Doxymacs to insert doxygen comment.
 (add-hook 'c-mode-common-hook
   (lambda ()
     (require 'doxymacs)
@@ -90,6 +91,15 @@
     ;; )
     )
   )
+;; Change default comment symbol to "// ".
+(add-hook 'c-common-mode-hook
+  (lambda ()
+    ;; Preferred comment style
+    (setq comment-start "// "
+          comment-end ""
+    )
+  )
+)
 
 ;;; General config.
 ;; ============================================================================
