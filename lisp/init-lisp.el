@@ -116,18 +116,22 @@
 ;; Enable desired features for all lisp modes
 ;; ----------------------------------------------------------------------------
 (require-package 'rainbow-delimiters)
-(require-package 'redshank)
-(require 'redshank)
-(after-load 'redshank
-  (diminish 'redshank-mode))
+;; The following commented redshank mode and paredit is because it conflicts
+;; with smartparens-mode. redshank is a mode for editing lisp code, mainly for
+;; common lisp and redshank depends on paredit.
+;; (require-package 'redshank)
+;; (require 'redshank)
+;; (after-load 'redshank
+;;   (diminish 'redshank-mode))
 
 
 (defun sanityinc/lisp-setup ()
   "Enable features useful in any Lisp mode."
   (rainbow-delimiters-mode t)
-  (enable-paredit-mode)
+  ;; (enable-paredit-mode)
   (turn-on-eldoc-mode)
-  (redshank-mode))
+  ;; (redshank-mode)
+  )
 
 (defun sanityinc/emacs-lisp-setup ()
   "Enable features useful when working with elisp."
