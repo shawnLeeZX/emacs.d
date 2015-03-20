@@ -8,6 +8,12 @@
 (require-package 'dash)
 (require 'dash)
 
+
+;; Toggle visualization of matching pairs.  When enabled, any matching pair is
+;; highlighted after `sp-show-pair-delay' seconds of Emacs idle time if the
+;; point is immediately in front or after a pair.  This mode works similarly to
+;; `show-paren-mode', but support custom pairs.
+(show-smartparens-global-mode +1)
 (smartparens-global-mode t)
 (require 'smartparens-config)
 
