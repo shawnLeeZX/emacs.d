@@ -65,8 +65,16 @@
 
 ;;; General Config
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Make $ auto pair.
-(sp-local-pair 'LaTeX-mode "$" "$")
+;; Added builtin support of smartparens to latex.
+;; TODO(Shuai) The following suggestion is not realized yet.
+;; It is advised that you add `latex-mode' to the list
+;; `sp-navigate-consider-stringlike-sexp'.  This will tell
+;; smartparens to treat the $$ math blocks as sexps, and enable you
+;; to use all the sexp-based commands on them (such as
+;; `sp-down-sexp', `sp-up-sexp' etc.)
+(require 'smartparens-latex)
+
+;; (sp-local-pair 'LaTeX-mode "$" "$")
 ;; Sometimes Emacs cannnot set PATH env variable right. Set it
 ;; manually. Here is how to:
 ;; (setenv "PATH"

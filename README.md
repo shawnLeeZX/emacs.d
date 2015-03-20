@@ -59,11 +59,54 @@ create file headers.
 Notice that you need to manually add your contact in the header by changing the
 source code. I decided to work this way ...
 
-### Autopair
+### Smartparens
 
-Beyond the electric-pair mode used in purcell's configuration, I use
-[autopair](https://github.com/capitaomorte/autopair) to make the auto
-pairing more functional.
+[Smartparens](https://github.com/Fuco1/smartparens/wiki) is minor mode for
+Emacs that deals with parens pairs and tries to be smart about it. It started
+as a unification effort to combine functionality of several existing packages
+in a single, compatible and extensible way to deal with parentheses,
+delimiters, tags and the like. Some of these packages include autopair,
+textmate, wrap-region, electric-pair-mode, paredit and others.
+
+Smartparens has support for LaTeX and python, to use it add the following
+lines to your latex and python configuration respectively:
+
+```lisp
+(require 'smartparens-latex)
+```
+
+```lisp
+(require 'smartparens-python)
+```
+
+What's more if you write math in markdown often, there is one trick to make the
+support of smartparens to work with `markdown-mode` as well. Find the following
+line in `smartparens-latex`:
+
+```lisp
+(sp-with-modes '(
+                 tex-mode
+                 plain-tex-mode
+                 latex-mode
+                 )
+```
+
+and add `markdown-mode` in
+
+```lisp
+(sp-with-modes '(
+                 tex-mode
+                 plain-tex-mode
+                 latex-mode
+                 markdown-mode
+                 )
+```
+
+For paredit user, here is a
+[comparison](https://github.com/Fuco1/smartparens/wiki/Paredit-and-smartparens)
+between paredit and smartparens.
+
+Note that `redshank` uses paredit which conflicts with smartparens.
 
 ### ECB
 

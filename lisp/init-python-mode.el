@@ -211,7 +211,6 @@ May be necessary for some GUI environments (e.g., Mac OS X)")
 ;; auto-fill-mode will not be enabled.
 (add-hook 'python-mode-hook 'comment-auto-fill)
 ;; Add environment header to script.
-;; add-hook function does not work, so I use the lower level add-to-list.
 ;; TODO(Shuai) figure out how to call extern program and parse it output.
 (defsubst python-header-shell ()
   "Insert #!/usr/bin/env python"
@@ -221,6 +220,8 @@ May be necessary for some GUI environments (e.g., Mac OS X)")
     (add-hook 'make-header-hook 'python-header-shell)
     )
           )
+;; Smartparens has some support for python. Add it.
+(require 'smartparens-python)
 
 
 

@@ -18,8 +18,16 @@
 
 ;; Enable syntax highlighting for math.
 (setq markdown-enable-math t)
-;; Make $$ auto pair in markdown-mode.
-(sp-local-pair 'markdown-mode "$" "$")
+;; Use smartparens for latex to deal with the math in markdown.
+;; smartparens-latex.el is tweaked to make this work:
+;; (sp-with-modes '(
+;;                  tex-mode
+;;                  plain-tex-mode
+;;                  latex-mode
+;;                  markdown-mode
+;; The last line is added to make it work with markdown-mode.
+(require 'smartparens-latex)
+
 
 ;; Disable whitespace cleanup since trailing whitespace is important
 ;; for indentation.
