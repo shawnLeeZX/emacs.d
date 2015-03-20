@@ -121,11 +121,26 @@ disable highlighting.
 
 ## IDE for C/C++
 
-Below is three video on Youtude.
+Below is three video on Youtude, which would give you a rough start on
+customizing emacs for programming C/C++.
 
 * [Emacs as a C/C++ Editor/IDE (Part I): auto-complete, yasnippet, and autoplete](https://www.youtube.com/watch?v=HTUE03LnaXA)
 * [Emacs as a C/C++ Editor/IDE (Part 2): iedit, flymake-google-cpplint, google-c-style](https://www.youtube.com/watch?v=r_HW0EB67eY)
 * [Emacs as a C/C++ Editor/IDE (Part 3): Installing CEDET mode for true intellisense](https://www.youtube.com/watch?v=Ib914gNr0ys)
+
+There is a really
+[tutorial on customizing C/C++ environment for emacs](http://tuhdo.github.io/c-ide.html).
+After you finish the previous three videos, do some programming and feel that
+the environment is not powerful enough, you could get some advice from such
+post.
+
+Some note on the post:
+1. If you are using `jedi` for coding python in emacs, note that in the article
+   the author uses `company-mode` to provide auto completion, and `jedi` only
+   support `auto-complete-mode`.
+2. If you want to know more about CEDET, here is
+   [a nice introductory post](http://alexott.net/en/writings/emacs-devenv/EmacsCedet.html)
+   explaining it.
 
 ## IDE for Python
 

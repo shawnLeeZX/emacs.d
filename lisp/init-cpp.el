@@ -1,6 +1,9 @@
 ;;; init-cpp.el -- Config for c/cpp mode.
 
 ;;; Commentary:
+;; See individual section.
+
+;;; Code:
 
 ;;; Syntax checker.
 ;; ============================================================================
@@ -42,6 +45,12 @@
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 ;; ============================================================================
+
+;;; Show function prototype
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require-package 'function-args)
+(require 'function-args)
+(fa-config-default)
 
 ;;; Cedet
 ;; ============================================================================
