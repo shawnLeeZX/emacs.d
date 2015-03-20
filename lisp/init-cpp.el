@@ -6,7 +6,7 @@
 ;;; Code:
 
 ;;; Syntax checker.
-;; ============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; It is quite confusing to have more than one syntax checker in the
 ;; configuration file.  For overall syntax checking, this repo uses flycheck.
 ;; However, since the package flymake-google-cpplint uses flymake, So flymake
@@ -44,16 +44,18 @@
 ;; activate the mode.
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
-;; ============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Show function prototype
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require-package 'function-args)
 (require 'function-args)
 (fa-config-default)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;;; Cedet
-;; ============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Start semantic mode.
 (semantic-mode 1)
 ;; TODO(Shuai) semantic model also works for a number of other languages,
@@ -67,6 +69,17 @@
 (global-semantic-idle-scheduler-mode 1)
 ;; Enable jumping back.
 (global-semantic-mru-bookmark-mode 1)
+;; Display function interface in the minibuffer while emacs is idle..
+(global-semantic-idle-summary-mode 1)
+;; Stick current function interface at the top of the current buffer.
+;; One of the problem with current semantic-stickyfunc-mode is that it does not
+;; display all parameters that are scattered on multiple lines. This package
+;; handles that problem: semantic-stickyfunc-enhance. Extra: stock
+;; semantic-stickyfunc-mode does not include assigned values to function
+;; parameters of Python. This package also fixed that problem.
+(require-package 'stickyfunc-enhance)
+(require 'stickyfunc-enhance)
+(global-semantic-stickyfunc-mode 1)
 ;; Added the parsing result to auto-complete list.
 (defun shawn:enable-c/cpp-semantic ()
   (add-to-list 'ac-sources 'ac-source-semantic)
@@ -83,10 +96,10 @@
 
 (add-hook 'c-mode-common-hook 'shawn:enable-c/cpp-semantic)
 (add-hook 'c-mode-common-hook 'semantic-config:setup-keys)
-;; ============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Comment related.
-;; ============================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Doxymacs to insert doxygen comment.
 (add-hook 'c-mode-common-hook
   (lambda ()
@@ -109,10 +122,19 @@
     )
   )
 )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; Documentation lookup.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(evil-leader/set-key "K" 'helm-man-woman)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; General config.
-;; ============================================================================
-(add-hook 'c-mode-common-hook 'comment-auto-fill)
-(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'c-mode-common-hook (lambda ()
+                                (comment-auto-fill)
+                                (flyspell-prog-mode)
+                                       ))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-cpp)
