@@ -1,7 +1,7 @@
 (require-package 'auctex)
 
 ;;; Auctex configuration for editing
-;;; ==================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; If you want to make AUCTEX aware of style files and multi-file
 ;; documents right away, insert the following in your ‘.emacs’ file.
 (setq TeX-auto-save t)
@@ -40,31 +40,38 @@
                             )
                             )
           )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;;; Auctex configuration for reference
-;;; ==================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; If you want to make AUCTEX aware of style files and multi-file
 ;; a comprehensive solution for managing cross references,
 ;; bibliographies, indices, document navigation and a few other
 ;; things: RefTex.
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; preview funtionality: preview-latex
-;;; ================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; No configuration is needed. Refer to manual for usage.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Display Math symbol in Unicode directly.
-;;; ================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require-package 'latex-pretty-symbols)
 (require 'latex-pretty-symbols)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; General Config
-;;; ================================================================
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Make $ auto pair.
+(sp-local-pair 'LaTeX-mode "$" "$")
 ;; Sometimes Emacs cannnot set PATH env variable right. Set it
 ;; manually. Here is how to:
 ;; (setenv "PATH"
 ;;         (concat "/usr/local/bin:/usr/texbin:" (getenv "PATH")))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 (provide 'init-latex)

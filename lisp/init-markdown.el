@@ -18,6 +18,8 @@
 
 ;; Enable syntax highlighting for math.
 (setq markdown-enable-math t)
+;; Make $$ auto pair in markdown-mode.
+(sp-local-pair 'markdown-mode "$" "$")
 
 ;; Disable whitespace cleanup since trailing whitespace is important
 ;; for indentation.

@@ -56,8 +56,7 @@
 (require 'init-hippie-expand)
 (require 'init-yasnippet)
 (require 'init-iedit)
-(require 'init-autopair)
-;; (require 'init-smartparens)
+(require 'init-smartparens)
 (require 'init-auto-complete)
 (require 'init-windows)
 (require 'init-sessions)
@@ -99,7 +98,6 @@
 (require 'init-protobuf)
 (require 'init-caffe)
 
-(require 'init-paredit)
 (require 'init-lisp)
 (require 'init-slime)
 (require 'init-clojure)
