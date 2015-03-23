@@ -74,6 +74,7 @@
 (require 'init-bash)
 (require 'init-term)
 (require 'init-cpp)
+(require 'init-makefile-mode)
 (require 'init-r-mode)
 (require 'init-crontab)
 (require 'init-textile)
