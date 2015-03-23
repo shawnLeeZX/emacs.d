@@ -69,8 +69,12 @@
 (global-semantic-idle-scheduler-mode 1)
 ;; Enable jumping back.
 (global-semantic-mru-bookmark-mode 1)
+
 ;; Display function interface in the minibuffer while emacs is idle..
-(global-semantic-idle-summary-mode 1)
+;; This feature is commented out because it shadows the flymake error in the
+;; minibuf.
+;; (global-semantic-idle-summary-mode 1)
+
 ;; Stick current function interface at the top of the current buffer.
 ;; One of the problem with current semantic-stickyfunc-mode is that it does not
 ;; display all parameters that are scattered on multiple lines. This package
