@@ -7,6 +7,9 @@
 ;; require final newlines in files when they are saved
 (setq require-final-newline t)
 
+;; Inherit PATH environment variable from user shell.
+(set-exec-path-from-shell-PATH)
+
 ;; The user's information.
 (setq user-mail-address "lishuai918@gmail.com")
 (defun user-full-name ()
