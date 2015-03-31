@@ -154,6 +154,7 @@
 (add-hook 'c-mode-common-hook (lambda ()
                                 (comment-auto-fill)
                                 (flyspell-prog-mode)
+                                (setq evil-shift-width 2)
                                        ))
 ;; Config for smartparens.
 (sp-with-modes '(c-mode c++-mode)

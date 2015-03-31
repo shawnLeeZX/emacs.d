@@ -79,6 +79,11 @@
 ;; manually. Here is how to:
 ;; (setenv "PATH"
 ;;         (concat "/usr/local/bin:/usr/texbin:" (getenv "PATH")))
+
+(add-hook 'LaTeX-mode-hook (lambda ()
+                             (setq evil-shift-width 2)
+                             ))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
