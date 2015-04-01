@@ -35,7 +35,7 @@
                             ;; Turn on auto fill.
                             (turn-on-auto-fill)
                             ;; Change preferred comment style of nerdcommenter.
-                            (setq comment-start "%%"
+                            (setq comment-start "%% "
                                   comment-end ""
                             )
                             )
