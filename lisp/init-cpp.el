@@ -5,6 +5,15 @@
 
 ;;; Code:
 
+;; Add cuda file to c++ mode.
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq auto-mode-alist
+      ;; Emacs will evaluate things like \t when it converts string literal, so
+      ;; if we want to build regex with \, we need to double escape.
+      (append '(("\\.cu\\'" . c++-mode))
+              auto-mode-alist))
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;;; Syntax checker.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; It is quite confusing to have more than one syntax checker in the
