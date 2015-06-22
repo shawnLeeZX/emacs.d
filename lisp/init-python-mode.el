@@ -218,6 +218,7 @@ May be necessary for some GUI environments (e.g., Mac OS X)")
 
 (add-hook 'python-mode-hook (lambda ()
     (add-hook 'make-header-hook 'python-header-shell)
+    (flyspell-prog-mode)
     )
           )
 ;; Smartparens has some support for python. Add it.
