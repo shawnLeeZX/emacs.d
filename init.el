@@ -5,9 +5,6 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
 
-;; TODO This is the place where spell checking is handled globally. Clean up
-;; distributed lisp code.
-(defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
 ;;----------------------------------------------------------------------------
@@ -80,9 +77,6 @@
 (require 'init-darcs)
 (require 'init-git)
 (require 'init-github)
-
-(when *spell-check-support-enabled*
-  (require 'init-spelling))
 
 (require 'init-marmalade)
 (require 'init-misc)
