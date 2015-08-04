@@ -66,6 +66,9 @@
 ;;; Cedet
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Start semantic mode.
+;; TODO(Shuai) Since it gets included at startup, the semantic-mode actually is
+;; enabled for all languages. Factor the configuration out into a separate
+;; file.
 (semantic-mode 1)
 ;; TODO(Shuai) semantic model also works for a number of other languages,
 ;; including python, try them out sometime. Then abstract the semantic related

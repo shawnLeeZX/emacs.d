@@ -45,12 +45,14 @@
 
 ;; Add modes that would use autocompletion.
 (set-default 'ac-sources
-             '(ac-source-imenu
+             '(
+               ac-source-filename ; We put filename first given that it almost
+                                  ; does not conflict with other completion but
+                                  ; when it is needed, it is needed surely the
+                                  ; first.
+               ac-source-abbrev
                ac-source-dictionary
-               ac-source-words-in-buffer
-               ac-source-words-in-same-mode-buffers
-               ac-source-words-in-all-buffer
-               ac-source-filename))
+               ac-source-words-in-same-mode-buffers))
 
 (dolist (mode '(magit-log-edit-mode
                 log-edit-mode org-mode text-mode haml-mode
