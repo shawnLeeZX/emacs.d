@@ -2,13 +2,11 @@
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
-(let ((minver 23))
-  (unless (>= emacs-major-version minver)
-    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
-
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
 
+;; TODO This is the place where spell checking is handled globally. Clean up
+;; distributed lisp code.
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
@@ -30,12 +28,24 @@
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
 
+;; Extra packages which don't require any configuration
 (require-package 'wgrep)
 (require-package 'project-local-variables)
 (require-package 'diminish)
 (require-package 'scratch)
 (require-package 'mwe-log-commands)
 
+(require-package 'gnuplot)
+(require-package 'htmlize)
+(require-package 'dsvn)
+(require-package 'regex-tool)
+(when *is-a-mac*
+  (require-package 'osx-location))
+
+(require-package 'lua-mode)
+
+
+;; Packages need configuring.
 (require 'init-frame-hooks)
 (require 'init-xterm)
 (require 'init-themes)
@@ -71,6 +81,18 @@
 (require 'init-git)
 (require 'init-github)
 
+(when *spell-check-support-enabled*
+  (require 'init-spelling))
+
+(require 'init-marmalade)
+(require 'init-misc)
+
+(require 'init-dash)
+(require 'init-ledger)
+
+(require 'init-evil)
+
+;; Language specific packages.
 (require 'init-bash)
 (require 'init-term)
 (require 'init-cpp)
@@ -102,29 +124,8 @@
 (require 'init-lisp)
 (require 'init-slime)
 (require 'init-clojure)
-(when (>= emacs-major-version 24)
-  (require 'init-clojure-cider))
+(require 'init-clojure-cider)
 (require 'init-common-lisp)
-
-(when *spell-check-support-enabled*
-  (require 'init-spelling))
-
-(require 'init-marmalade)
-(require 'init-misc)
-
-(require 'init-dash)
-(require 'init-ledger)
-
-(require 'init-evil)
-;; Extra packages which don't require any configuration
-
-(require-package 'gnuplot)
-(require-package 'lua-mode)
-(require-package 'htmlize)
-(require-package 'dsvn)
-(when *is-a-mac*
-  (require-package 'osx-location))
-(require-package 'regex-tool)
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
