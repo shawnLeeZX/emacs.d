@@ -187,27 +187,21 @@ Some note on the post:
 
 ## IDE for Python
 
-### Jedi
+### elpy
 
-[Jedi.el](https://github.com/tkf/emacs-jedi) is a Python
-auto-completion package for Emacs. It aims at helping your Python
-coding in a non-destructive way. It also helps you to find information
-about Python objects, such as docstring, function arguments and code
-location.
+[Elpy](https://github.com/jorgenschaefer/elpy) is an Emacs package to bring
+powerful Python editing to Emacs. It combines a number of other packages, both
+written in Emacs Lisp as well as Python.
 
-The config in this repo uses this great
-[config](https://github.com/wernerandrew/jedi-starter/blob/master/jedi-starter.el)
-with minor tweak. A explanation about the code could be found
-[here](https://s3-us-west-2.amazonaws.com/emacsnyc/documents/using-emacs-as-a-python-ide.pdf).
-
-Type `M-x jedi:install-server` to initialize when using jedi for the
-first time.
-
-I am also trying to use robemacs to do code completion and
-refactoring, but the setting up process is just too annoy which makes
-me realize why Jedi exists -- to remove the need for external tools.
+It is surprising easy to set up. One thing to note is that I have trouble using
+`rope` as the backend for elpy, which cannot handle cross module
+navigation. Instead, I used `jedi`.
 
 ### Flycheck
+
+Though elpy uses the build-in `flymake` to provide syntax checking, `flycheck`
+does not conflict with `flymake`, so it would be more powerful if you have two
+installed.
 
 To make flycheck work with python, `flake8` needs to be installed:
 

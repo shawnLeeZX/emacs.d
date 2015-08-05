@@ -187,4 +187,23 @@ is chosen from your OS's preference."
   (insert (make-string (- fill-column (current-column)) ?=))
   )
 
+;; On Environment Variables.
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Small helper to scrape text from shell output
+(defun get-shell-output (cmd)
+  (replace-regexp-in-string "[ \t\n]*$" "" (shell-command-to-string cmd))
+  )
+
+;; Ensure that PATH is taken from shell
+;; Taken from: http://stackoverflow.com/questions/8606954/path-and-exec-path-set-but-emacs-does-not-find-executable
+
+(defun set-exec-path-from-shell-PATH ()
+  "Set up Emacs' `exec-path' and PATH environment variable to match that used by the user's shell."
+  (interactive)
+  (let ((path-from-shell (get-shell-output "$SHELL --login -i -c 'echo $PATH'")))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))
+    )
+  )
+
 (provide `init-local-util)

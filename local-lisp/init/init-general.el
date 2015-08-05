@@ -10,7 +10,7 @@
 (setq require-final-newline t)
 
 ;; Inherit PATH environment variable from user shell.
-(set-exec-path-from-shell-PATH)
+(add-hook 'after-init-hook 'set-exec-path-from-shell-PATH)
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; User information.

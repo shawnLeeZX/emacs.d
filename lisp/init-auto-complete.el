@@ -1,6 +1,7 @@
 (require-package 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
+;; Enable auto-complete for modes in ac-modes by default.
 (global-auto-complete-mode t)
 
 ;; Controls the operation of the TAB key.  If t, hitting TAB always just indents
@@ -54,19 +55,22 @@
                ac-source-dictionary
                ac-source-words-in-same-mode-buffers))
 
-(dolist (mode '(magit-log-edit-mode
-                log-edit-mode org-mode text-mode haml-mode
-                git-commit-mode
-                sass-mode yaml-mode csv-mode espresso-mode haskell-mode
-                html-mode nxml-mode sh-mode smarty-mode clojure-mode
-                lisp-mode textile-mode markdown-mode tuareg-mode
-                js3-mode css-mode less-css-mode sql-mode
-                sql-interactive-mode
-                inferior-emacs-lisp-mode
-                web-mode
-                inferior-python-mode
-                conf-mode conf-unix-mode conf-colon-mode))
-  (add-to-list 'ac-modes mode))
+;; We reset the default mode for auto-complete given that we want to some modes
+;; to use company-mode.
+(set-default 'ac-modes
+             '(
+               magit-log-edit-mode
+               log-edit-mode org-mode text-mode haml-mode
+               git-commit-mode
+               conf-mode conf-unix-mode conf-colon-mode
+               inferior-emacs-lisp-mode inferior-python-mode
+               sql-interactive-mode
+               sass-mode yaml-mode csv-mode espresso-mode haskell-mode
+               html-mode nxml-mode smarty-mode clojure-mode
+               lisp-mode textile-mode markdown-mode tuareg-mode
+               js3-mode css-mode less-css-mode sql-mode
+               web-mode
+               ))
 
 ;; Exclude very large buffers from dabbrev
 (defun sanityinc/dabbrev-friend-buffer (other-buffer)
