@@ -85,6 +85,10 @@
 (require 'init-ledger)
 
 (require 'init-evil)
+(require 'init-irony)
+(require 'init-ggtags)
+(require 'init-company)
+(require 'init-cedet)
 
 ;; Language specific packages.
 (require 'init-bash)

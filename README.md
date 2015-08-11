@@ -19,6 +19,27 @@ vim. I use `package.el`. See this
 
 Note that this is not an added functionalities.
 
+### Auto-complete & Company
+
+[company](http://company-mode.github.io/) and
+[auto-complete](https://github.com/auto-complete/auto-complete) are the two
+frameworks of Emacs to provide automatically completion
+functionality. `auto-complete` does good when you are writing text heavy
+contents such as LaTeX or markdown while `company` does well on logically heavy
+ones such as programming language.
+
+This emacs configuration uses both the two to provide a better editing
+environment. For a partial comparison between the two and how to use them
+together, refer to this
+[note](http://shawnleezx.github.io/blog/2015/08/11/on-auto-completion-in-emacs/).
+
+### Yasnippet
+
+[YASnippet](https://github.com/capitaomorte/yasnippet) is a template system for
+Emacs. It allows you to type an abbreviation and automatically expand it into
+function templates. Bundled language templates include: C, C++, C#, Perl,
+Python, Ruby, SQL, LaTeX, HTML, CSS and more.
+
 ### Copy Paste
 I use emacs in a termial, and by default inter-program copy and paste
 does not work.
@@ -164,26 +185,45 @@ disable highlighting.
 
 ## IDE for C/C++
 
-Below is three video on Youtude, which would give you a rough start on
-customizing emacs for programming C/C++.
+### Code Completion
+[irony-mode](https://github.com/Sarcasm/irony-mode) is an Emacs minor-mode that
+aims at improving the editing experience for the C, C++ and Objective-C
+languages. It works by using a combination of an Emacs package and a C++
+program (`irony-server`) that uses
+[libclang](http://clang.llvm.org/doxygen/group__CINDEX.html).
 
-* [Emacs as a C/C++ Editor/IDE (Part I): auto-complete, yasnippet, and autoplete](https://www.youtube.com/watch?v=HTUE03LnaXA)
-* [Emacs as a C/C++ Editor/IDE (Part 2): iedit, flymake-google-cpplint, google-c-style](https://www.youtube.com/watch?v=r_HW0EB67eY)
-* [Emacs as a C/C++ Editor/IDE (Part 3): Installing CEDET mode for true intellisense](https://www.youtube.com/watch?v=Ib914gNr0ys)
+It is very fast and accurate except for the incapability to deal with
+templates, which solves the problem that [CEDET](http://cedet.sourceforge.net/)
+could not handle large projects.
 
-There is a really
-[tutorial on customizing C/C++ environment for emacs](http://tuhdo.github.io/c-ide.html).
-After you finish the previous three videos, do some programming and feel that
-the environment is not powerful enough, you could get some advice from such
-post.
+For trouble shooting while using it, may refer to my
+[note](http://shawnleezx.github.io/blog/2015/08/11/on-code-completion-for-c-slash-c-plus-plus/).
 
-Some note on the post:
-1. If you are using `jedi` for coding python in emacs, note that in the article
-   the author uses `company-mode` to provide auto completion, and `jedi` only
-   support `auto-complete-mode`.
-2. If you want to know more about CEDET, here is
-   [a nice introductory post](http://alexott.net/en/writings/emacs-devenv/EmacsCedet.html)
-   explaining it.
+### Code Navigation
+
+[ggtags](https://github.com/leoliu/ggtags) is the Emacs frontend to GNU Global
+source code tagging system, which provides a lot of features to aid code
+navigation.
+
+### Error Checking & Style Enforcement
+
+Uses
+[flymake-google-cpplint](https://github.com/senda-akiha/flymake-google-cpplint),
+[flycheck](https://github.com/flycheck/flycheck) and
+[google-c-style](https://google-styleguide.googlecode.com/svn/trunk/google-c-style.el).
+
+### Header File Completion
+
+Uses
+[company-c-headers](https://github.com/randomphrase/company-c-headers). This
+library enables the completion of C/C++ header file names using Company mode
+for Emacs.
+
+### Function Documentation Display
+Use [irony-eldoc](https://github.com/ikirill/irony-eldoc). This implements
+eldoc support in irony-mode. eldoc is a built-in Emacs mode for displaying
+documentation about a symbol or function call at point in the message buffer
+(see eldoc-mode).
 
 ## IDE for Python
 
