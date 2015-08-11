@@ -32,10 +32,4 @@
 (require-package 'irony-eldoc)
 (add-hook 'irony-mode-hook 'irony-eldoc)
 
-;; Setup keymapping for company-complete.
-(add-hook 'irony-mode-hook (lambda ()
-                             (local-set-key (kbd "<tab>") 'company-complete-common)
-                             (local-set-key (kbd "C-c C-f") 'company-files)
-                             ))
-
 (provide 'init-irony)
