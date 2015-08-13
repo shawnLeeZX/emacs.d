@@ -8,10 +8,14 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (set-default 'semantic-default-submodes '())
 
-(add-hook 'python-mode-hook (lambda ()
-                              (semantic-idle-scheduler-mode 1)
-                              (global-semanticdb-minor-mode 1)
-                              ))
+(defun setup-semantic-minor-modes ()
+  (semantic-idle-scheduler-mode 1)
+  (global-semanticdb-minor-mode 1)
+  )
+
+(add-hook 'python-mode-hook 'setup-semantic-minor-modes)
+(add-hook 'emacs-lisp-mode 'setup-semantic-minor-modes)
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; The following is the commented out configuration for using CEDET with C/C++.
 ;; Cedet is dropped due to its inferiority in speed compared with irony-mode
