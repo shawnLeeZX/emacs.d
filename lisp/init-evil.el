@@ -70,5 +70,7 @@
 (require 'evil)
 (evil-mode 1)
 
+(evil-set-initial-state #'git-commit-mode 'normal)
+
 
 (provide 'init-evil)
