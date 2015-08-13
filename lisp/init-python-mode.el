@@ -4,12 +4,69 @@
 (require 'python)
 
 ;;; Set up  additional filetype mapping.
-;; ===================================================================
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq auto-mode-alist
       (append '(("SConstruct\\'" . python-mode)
 		("SConscript\\'" . python-mode))
               auto-mode-alist))
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Config for python.el.
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq
+ python-shell-interpreter "ipython"
+ ;; python-shell-interpreter-args "--gui=wx --matplotlib=wx --colors=Linux"
+ python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+ python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+ python-shell-completion-setup-code
+   "from IPython.core.completerlib import module_completion"
+ python-shell-completion-module-string-code
+   "';'.join(module_completion('''%s'''))\n"
+ python-shell-completion-string-code
+   "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; elpy
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Now I am using elpy to provide IDE functionality for python. For the reason
+;; I made such a choice, refer to
+;; http://shawnleezx.github.io/blog/2015/08/05/on-ides-of-python-in-emacs/
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require-package 'elpy)
+(elpy-enable)
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Enable semantic-mode so ecb could display method of the current buffer.
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'python-mode-hook (lambda ()
+                              (semantic-mode 1)
+                              ))
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;; General settings.
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; The general setting is put last is because that the function that
+;; adds to the hook lastly is called lastly. So it will be
+;; effective. Otherwise, if it is added at the beginning of this file,
+;; auto-fill-mode will not be enabled.
+(add-hook 'python-mode-hook 'comment-auto-fill)
+;; Add environment header to script.
+;; TODO(Shuai) figure out how to call extern program and parse it output.
+(defsubst python-header-shell ()
+  "Insert #!/usr/bin/env python"
+  (insert "#!/usr/bin/env python\n"))
+
+(add-hook 'python-mode-hook (lambda ()
+    (add-hook 'make-header-hook 'python-header-shell)
+    (flyspell-prog-mode)
+    )
+          )
+;; Smartparens has some support for python. Add it.
+(require 'smartparens-python)
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TODO: figure out how to refactor python code using ropemacs.
 ;; ;; Pymacs
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/pymacs/")
@@ -27,30 +84,10 @@
 ;; (require 'pymacs)
 ;; (pymacs-load "ropemacs" "rope-")
 ;; (setq ropemacs-enable-autoimport t)
-
-;;; Config for python.el.
-;; ===================================================================
-(setq
- python-shell-interpreter "ipython"
- ;; python-shell-interpreter-args "--gui=wx --matplotlib=wx --colors=Linux"
- python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- python-shell-completion-setup-code
-   "from IPython.core.completerlib import module_completion"
- python-shell-completion-module-string-code
-   "';'.join(module_completion('''%s'''))\n"
- python-shell-completion-string-code
-   "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
-
-;; elpy
-;; Now I am using elpy to provide IDE functionality for python. For the reason
-;; I made such a choice, refer to
-;; http://shawnleezx.github.io/blog/2015/08/05/on-ides-of-python-in-emacs/
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require-package 'elpy)
-(elpy-enable)
 
-;; Anaconda
+
+;; Anaconda(Not Used, alternative to elpy)
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require-package 'anaconda-mode)
 ;; (add-hook 'python-mode-hook 'anaconda-mode)
@@ -61,10 +98,10 @@
 ;; (eval-after-load "company"
 ;;  '(progn
 ;;    (add-to-list 'company-backends 'company-anaconda)))
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; ;;; Jedi
-;; ;; from:
-
+;; ;;; Jedi(Not Used, alternative to elpy)
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; The code here comes from
 ;; ;; https://github.com/wernerandrew/jedi-starter/blob/master/jedi-starter.el
 ;; ;; with minor tweak. A explanation about the code could be found
@@ -209,27 +246,8 @@
 ;; (setq jedi:complete-on-dot t)
 ;; ;; Use custom keybinds
 ;; (add-hook 'python-mode-hook 'jedi-config:setup-keys)
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; General settings.
-;; ===================================================================
-;; The general setting is put last is because that the function that
-;; adds to the hook lastly is called lastly. So it will be
-;; effective. Otherwise, if it is added at the beginning of this file,
-;; auto-fill-mode will not be enabled.
-(add-hook 'python-mode-hook 'comment-auto-fill)
-;; Add environment header to script.
-;; TODO(Shuai) figure out how to call extern program and parse it output.
-(defsubst python-header-shell ()
-  "Insert #!/usr/bin/env python"
-  (insert "#!/usr/bin/env python\n"))
-
-(add-hook 'python-mode-hook (lambda ()
-    (add-hook 'make-header-hook 'python-header-shell)
-    (flyspell-prog-mode)
-    )
-          )
-;; Smartparens has some support for python. Add it.
-(require 'smartparens-python)
 
 
 

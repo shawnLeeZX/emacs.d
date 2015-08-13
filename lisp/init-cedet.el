@@ -1,7 +1,21 @@
 
-;; ;;; Cedet
-;; ;; Cedet is dropped due to its inferiority in speed compared with irony-mode
-;; ;; and ggtags
+;;; Cedet
+
+;; Given some lightweight work, such as programming python, CEDET is convenient
+;; for create tags automatically, CEDET is still gotten enabled, but with very
+;; limited functions by default. More functionality will be added at a mode
+;; based way.
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(set-default 'semantic-default-submodes '())
+
+(add-hook 'python-mode-hook (lambda ()
+                              (semantic-idle-scheduler-mode 1)
+                              (global-semanticdb-minor-mode 1)
+                              ))
+
+;; The following is the commented out configuration for using CEDET with C/C++.
+;; Cedet is dropped due to its inferiority in speed compared with irony-mode
+;; and ggtags
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; Start semantic mode.
 ;; (semantic-mode 1)
