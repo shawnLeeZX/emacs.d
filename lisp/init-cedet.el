@@ -15,6 +15,7 @@
 
 (add-hook 'python-mode-hook 'setup-semantic-minor-modes)
 (add-hook 'emacs-lisp-mode 'setup-semantic-minor-modes)
+(add-hook 'LaTeX-mode 'setup-semantic-minor-modes)
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; The following is the commented out configuration for using CEDET with C/C++.
