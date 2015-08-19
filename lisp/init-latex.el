@@ -1,5 +1,26 @@
 (require-package 'auctex)
 
+;; Make focus switch automatically after backward search.
+;; As for the forward search, did not find a solution yet.
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun raise-client-frame ()
+  (let ((wmctrl (executable-find "wmctrl")))
+    (if wmctrl
+    (start-process "wmctrl" nil wmctrl "-R" (frame-parameter nil 'name)))))
+;; This raises the frame when using Evince.
+(add-hook 'TeX-source-correlate-mode-hook
+      (lambda ()
+        (when (TeX-evince-dbus-p)
+          (dbus-register-signal
+           :session nil "/org/gnome/evince/Window/0"
+           "org.gnome.evince.Window" "SyncSource"
+           (lambda (file linecol &rest ignored)
+             (TeX-source-correlate-sync-source file linecol ignored)
+             (raise-client-frame)
+             )))))
+;; This raises the frame when using all other viewers.
+(add-hook 'server-switch-hook 'raise-client-frame)
+
 ;;; Auctex configuration for editing
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; If you want to make AUCTEX aware of style files and multi-file
@@ -38,8 +59,10 @@
                             (setq comment-start "%% "
                                   comment-end ""
                             )
+                            (TeX-source-correlate-mode 1)
                             )
           )
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
