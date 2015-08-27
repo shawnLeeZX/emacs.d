@@ -10,6 +10,7 @@
 ;; Make a visual selection with v or V, and then hit * to search that
 ;; selection forward, or # to search that selection backward.
 (require 'evil-visualstar)
+(global-evil-visualstar-mode t)
 
 (require 'evil-matchit)
 (global-evil-matchit-mode 1)
