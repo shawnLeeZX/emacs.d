@@ -71,6 +71,7 @@
                textile-mode markdown-mode tuareg-mode
                js3-mode css-mode less-css-mode sql-mode
                web-mode
+               protobuf-mode
                ))
 
 ;; Exclude very large buffers from dabbrev
