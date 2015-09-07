@@ -1,18 +1,24 @@
 
 ;;; Cedet
 
-;; Given some lightweight work, such as programming python, CEDET is convenient
-;; for create tags automatically, CEDET is still gotten enabled, but with very
-;; limited functions by default. More functionality will be added at a mode
+;; The major purpose of keeping cedet is to provide a method buffer in ECB.
+;; Given that CEDET is convenient for create tags automatically, CEDET is still
+;; gotten enabled, but with very limited functions by default, to provide a
+;; clearer configure for debug. More functionality will be added at a mode
 ;; based way.
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (set-default 'semantic-default-submodes '())
+;; Do not make it parse files in the same folder and header files for speed
+;; reason.
+(setq semantic-idle-work-parse-neighboring-files-flag nil)
+(setq semantic-idle-work-update-headers-flag nil)
 
 (defun setup-semantic-minor-modes ()
   (semantic-idle-scheduler-mode 1)
   (global-semanticdb-minor-mode 1)
   )
 
+(add-hook 'c-common-mode-hook 'setup-semantic-minor-modes)
 (add-hook 'python-mode-hook 'setup-semantic-minor-modes)
 (add-hook 'emacs-lisp-mode 'setup-semantic-minor-modes)
 (add-hook 'LaTeX-mode 'setup-semantic-minor-modes)
@@ -26,7 +32,7 @@
 ;; (semantic-mode 1)
 ;; (global-ede-mode 1)
 ;; (global-semanticdb-minor-mode 1)
-;; ;; Make semantic parse buffers when idle.
+;; Make semantic parse buffers when idle.
 ;; (global-semantic-idle-scheduler-mode 1)
 ;; ;; Enable jumping back.
 ;; (global-semantic-mru-bookmark-mode 1)
