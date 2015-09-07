@@ -4,8 +4,7 @@
 ;; The major purpose of keeping cedet is to provide a method buffer in ECB.
 ;; Given that CEDET is convenient for create tags automatically, CEDET is still
 ;; gotten enabled, but with very limited functions by default, to provide a
-;; clearer configure for debug. More functionality will be added at a mode
-;; based way.
+;; clearer configure for debug.
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (set-default 'semantic-default-submodes '())
 ;; Do not make it parse files in the same folder and header files for speed
@@ -13,34 +12,25 @@
 (setq semantic-idle-work-parse-neighboring-files-flag nil)
 (setq semantic-idle-work-update-headers-flag nil)
 
-(defun setup-semantic-minor-modes ()
-  (semantic-idle-scheduler-mode 1)
-  (global-semanticdb-minor-mode 1)
-  )
-
-(add-hook 'c-common-mode-hook 'setup-semantic-minor-modes)
-(add-hook 'python-mode-hook 'setup-semantic-minor-modes)
-(add-hook 'emacs-lisp-mode 'setup-semantic-minor-modes)
-(add-hook 'LaTeX-mode 'setup-semantic-minor-modes)
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;; Start semantic mode.
+(semantic-mode 1)
+;; (global-ede-mode 1)
+(global-semanticdb-minor-mode 1)
+;; Make semantic parse buffers when idle.
+(global-semantic-idle-scheduler-mode 1)
 
 ;; The following is the commented out configuration for using CEDET with C/C++.
 ;; Cedet is dropped due to its inferiority in speed compared with irony-mode
 ;; and ggtags
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; Start semantic mode.
-;; (semantic-mode 1)
-;; (global-ede-mode 1)
-;; (global-semanticdb-minor-mode 1)
-;; Make semantic parse buffers when idle.
-;; (global-semantic-idle-scheduler-mode 1)
-;; ;; Enable jumping back.
+;; Enable jumping back.
 ;; (global-semantic-mru-bookmark-mode 1)
 
-;; ;; Display function interface in the minibuffer while emacs is idle..
-;; ;; This feature is commented out because it shadows the flymake error in the
-;; ;; minibuf.
-;; ;; (global-semantic-idle-summary-mode 1)
+;; Display function interface in the minibuffer while emacs is idle..
+;; This feature is commented out because it shadows the flymake error in the
+;; minibuf.
+;; (global-semantic-idle-summary-mode 1)
 
 ;; Let Semantic automatically find directory where system include files are
 ;; stored.
