@@ -72,6 +72,7 @@
                js3-mode css-mode less-css-mode sql-mode
                web-mode
                protobuf-mode
+               sh-mode
                ))
 
 ;; Exclude very large buffers from dabbrev
