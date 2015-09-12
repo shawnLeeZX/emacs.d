@@ -47,9 +47,6 @@
                          header-blank
                          header-lib-requires
                          header-commentary
-                         header-blank
-                         header-blank
-                         header-blank
                          header-code
                          header-eof
                          )

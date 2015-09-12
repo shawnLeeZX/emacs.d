@@ -53,6 +53,7 @@
 
 (add-hook 'python-mode-hook (lambda ()
     (add-hook 'make-header-hook 'python-header-shell)
+    (remove-hook 'make-header-hook 'header-commentary)
     (flyspell-prog-mode)
     )
           )
