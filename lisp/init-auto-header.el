@@ -41,9 +41,6 @@
                          header-contact
                          header-creation-date
                          header-pkg-requires
-                         header-modification-date
-                         header-modification-author
-                         header-update-count
                          header-blank
                          header-lib-requires
                          header-commentary
