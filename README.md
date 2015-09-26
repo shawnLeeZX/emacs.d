@@ -355,6 +355,11 @@ The following packages are included:
 * [latex-pretty-symbols](https://bitbucket.org/mortiferus/latex-pretty-symbols.el/),
   an extension that makes emacs display unicode characters instead of
   latex commands for a lot of the most usual symbols.
+* [company-math](https://github.com/vspinu/company-math) Completion back-ends
+  for for math unicode symbols and latex tags. It works with
+  `autocomplete-mode` --- completion will pop up automatically, so if you press
+  `tab` you still could get normal text completion function from
+  `autocomplete-mode`.
 
 ## Writing Markdown.
 See this

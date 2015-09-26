@@ -60,6 +60,12 @@
                                   comment-end ""
                             )
                             (TeX-source-correlate-mode 1)
+                            ;; Automatically compile when saving.
+                            (add-hook 'after-save-hook
+                                      (lambda ()
+                                        (TeX-command-menu "LaTeX")
+                                        )
+                                      nil 1)
                             )
           )
 
@@ -80,18 +86,26 @@
 ;; No configuration is needed. Refer to manual for usage.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; Display Math symbol in Unicode directly.
+;;; Math in LaTeX.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Display Math symbol in Unicode directly.
 (require-package 'latex-pretty-symbols)
 (require 'latex-pretty-symbols)
+;; Symbol completion.
+(defun setup-company-math ()
+  (setq-local company-backends
+              (append '(company-math-symbols-latex company-latex-commands)
+                      company-backends)))
+(add-hook 'LaTeX-mode-hook 'setup-company-math)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; Side by side Latex preview.
 ;; It conflicts with xltxtra. Do not know why yet.
 ;; Call `latex-preview-pane-mode` to use it manually when writing latex.
+;; Package dropped; use compile on saving written myself.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require-package 'latex-preview-pane)
-(setq-default pdf-latex-command "xelatex")
+;; (require-package 'latex-preview-pane)
+;; (setq-default pdf-latex-command "xelatex")
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; General Config
@@ -114,7 +128,11 @@
 (add-hook 'LaTeX-mode-hook (lambda ()
                              (setq evil-shift-width 2)
                              ))
-
+;; Use LaTeX-mode instead of latex-mode. The latter should be the one from
+;; emacs, but maybe due to some bugs, it is referred to the one in octave.el,
+;; which is non-sense.
+;; But I am still not sure how things work between latex-mode and LaTeX-mode.
+(setq auto-mode-alist (cons '("\\.tex\\'" . LaTeX-mode) auto-mode-alist))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 

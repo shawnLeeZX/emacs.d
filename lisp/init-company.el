@@ -13,6 +13,10 @@
 (setq company-global-modes '(
                             c-mode
                             c++-mode
+                            ;; Add both modes in, given not sure what is the
+                            ;; real relation between them.
+                            latex-mode
+                            LaTeX-mode
                             ))
 
 ;; Setup keymapping for company-complete.
