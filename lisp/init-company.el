@@ -18,11 +18,12 @@
                             latex-mode
                             LaTeX-mode
                             ))
-
+(add-hook 'company-mode-hook (lambda ()
+                               (local-set-key (kbd "C-c C-f") 'company-files)
+                               ))
+;; FIXME: This line should be the way to set keymap once and for all instead of
+;; using the hook, but I did not figure out why it does not work.
+;; (eval-after-load 'company '(local-set-key (kbd "C-c C-f") 'company-files))
 ;; Setup keymapping for company-complete.
-(add-hook 'irony-mode-hook (lambda ()
-                             (local-set-key (kbd "<tab>") 'company-complete-common)
-                             (local-set-key (kbd "C-c C-f") 'company-files)
-                             ))
 
 (provide 'init-company)

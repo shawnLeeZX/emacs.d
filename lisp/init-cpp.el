@@ -25,7 +25,6 @@
 ;; Setup keymapping for company-c-headers.
 (add-hook 'irony-mode-hook (lambda ()
                              (local-set-key (kbd "C-c C-h") 'company-c-headers)
-                             (local-set-key (kbd "C-c C-f") 'company-files)
                              ))
 
 ;; Autocomplete for c headers.

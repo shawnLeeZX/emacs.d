@@ -32,4 +32,32 @@
 (require-package 'irony-eldoc)
 (add-hook 'irony-mode-hook 'irony-eldoc)
 
+;; bind TAB for indent-or-complete
+;; I learned (or just copied) this from this
+;; [gist](https://gist.github.com/soonhokong/7c2bf6e8b72dbc71c93b).
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun irony--check-expansion ()
+  (save-excursion
+    (if (looking-at "\\_>") t
+      (backward-char 1)
+      (if (looking-at "\\.") t
+        (backward-char 1)
+        (if (looking-at "->") t nil)))))
+(defun irony--indent-or-complete ()
+  "Indent or Complete"
+  (interactive)
+  (cond ((and (not (use-region-p))
+              (irony--check-expansion))
+         (message "complete")
+         (company-complete-common))
+        (t
+         (message "indent")
+         (call-interactively 'c-indent-line-or-region))))
+(defun irony-mode-keys ()
+  "Modify keymaps used by `irony-mode'."
+  (local-set-key (kbd "TAB") 'irony--indent-or-complete)
+  (local-set-key (kbd "<tab>") 'irony--indent-or-complete)
+  (local-set-key [tab] 'irony--indent-or-complete))
+(add-hook 'c-mode-common-hook 'irony-mode-keys)
+
 (provide 'init-irony)
