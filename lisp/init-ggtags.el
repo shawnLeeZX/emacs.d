@@ -21,5 +21,6 @@
 ;; function definitions, variable definitions in a file by name. But I am not
 ;; quite sure how it works. Will see it in the future.
 (setq-local imenu-create-index-function 'ggtags-build-imenu-index)
+(setq ggtags-auto-jump-to-match nil)
 
 (provide 'init-ggtags)
