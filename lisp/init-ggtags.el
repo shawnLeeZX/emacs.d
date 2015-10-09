@@ -21,6 +21,12 @@
 ;; function definitions, variable definitions in a file by name. But I am not
 ;; quite sure how it works. Will see it in the future.
 (setq-local imenu-create-index-function 'ggtags-build-imenu-index)
-(setq ggtags-auto-jump-to-match nil)
+;; If I do not make ggtags jump automatically, when I am looking up a
+;; definition it will give a really long list of options while automatic jump
+;; will jump to the right place directly; If I do, it will normally jump to the
+;; wrong place when I am looking up for reference. Compared those two
+;; situation, I think I may just settle with the default --- auto jump
+;; according to history.
+;; (setq ggtags-auto-jump-to-match nil)
 
 (provide 'init-ggtags)
