@@ -9,6 +9,7 @@
     (setq comment-start ";; "
           comment-end ""
     )
+    (local-set-key (kbd "M-.") 'elisp-slime-nav-find-elisp-thing-at-point)
   )
 )
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
