@@ -13,9 +13,10 @@
 ; don't show the scroll bar
 (if window-system (scroll-bar-mode 0))
 
-;; Display trailing whitespace.
-(setq show-trailing-whitespace t)
-(setq whitespace-style '(trailing tabs tab-mark))
+;; Visualize trailing whitespace, empty lines at the beginning and the end of
+;; the file and tabs.
+(global-whitespace-mode 1)
+(setq whitespace-style '(face trailing tabs tab-mark empty))
 
 ;; Display line number on the margin.
 (global-linum-mode)
