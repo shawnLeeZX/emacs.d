@@ -30,4 +30,7 @@
 ;;
 ;; See more at http://ecb.sourceforge.net/docs/Changing-window-sizes.html
 
+;; Run ECB after Emacs starts.
+(setq ecb-auto-activate t)
+
 (provide 'init-ecb)
