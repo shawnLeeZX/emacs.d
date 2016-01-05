@@ -44,6 +44,9 @@
 (require 'fic-mode)
 (add-hook 'after-change-major-mode-hook 'fic-mode)
 
+;; Make newly create frames inherit current transparency value.
+(add-to-list 'frame-inherited-parameters 'alpha)
+
 (require 'init-powerline)
 
 (provide 'init-appearance)
