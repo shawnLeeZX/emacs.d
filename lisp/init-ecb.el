@@ -33,4 +33,19 @@
 ;; Run ECB after Emacs starts.
 (setq ecb-auto-activate t)
 
+(defun ecb-activated-in-selected-frame ()
+  "A hack to use ECB in multiple frames. It first deactivates ECB, then
+activate it in current frame."
+  (interactive)
+  (let ((current-frame (selected-frame)))
+    ; The frame foucs change when activating or deactivating ECB is werid, so
+    ; activate current selected frame explicit explicitly.
+    (if (and (boundp 'ecb-minor-mode) (ecb-minor-mode))
+        (ecb-deactivate)
+      )
+    (select-frame current-frame)
+    (ecb-activate)
+    )
+  )
+
 (provide 'init-ecb)
