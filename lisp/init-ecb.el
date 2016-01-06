@@ -38,8 +38,8 @@
 activate it in current frame."
   (interactive)
   (let ((current-frame (selected-frame)))
-    ; The frame foucs change when activating or deactivating ECB is werid, so
-    ; activate current selected frame explicit explicitly.
+    ; The frame foucs change when activating or deactivating ECB is weird, so
+    ; activate current selected frame explicitly.
     (if (and (boundp 'ecb-minor-mode) (ecb-minor-mode))
         (ecb-deactivate)
       )
