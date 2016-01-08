@@ -383,7 +383,3 @@ A bunch of utilities for ease of usage is added in
 
 * Generate tags for emacs using `-e` option using ctags.
 * Shell in emacs. See this [post](http://www.masteringemacs.org/articles/2010/11/01/running-shells-in-emacs-overview/).
-* I recommend a product called
-  [teambition](https://www.teambition.com/) to replace the org-mode to
-  GET THINGS DONE. Its has a web interface and app on smartphone.
-
