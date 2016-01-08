@@ -1,11 +1,9 @@
 (require-package 'ecb)
 
 ;; Change ecb layout.
-;; This is the layout created using ecb-create-new-layout, choosing type
-;; leftright and let the left one be speedbar and the right one be method. Since
-;; I did not find out how the new layout is stored by ecb yet and did not figure
-;; out how to write it using macro, it is possible you have to create the new
-;; layout each time you setting up emacs on a new machine.
+;; Since I did not find out how the new layout is stored by ecb yet and did not
+;; figure out how to write it using macro, it is possible one has to create the
+;; new layout each time setting up emacs on a new machine.
 (setq ecb-layout-name "shawn-layout")
 
 ;; How to change ecb windows width.
@@ -47,5 +45,11 @@ activate it in current frame."
     (ecb-activate)
     )
   )
+
+;; Display speedbar in the same frame. The speedbar of ECB is weird. Each time
+;; I want to enter a directory, it always enters in that directory for less one
+;; second and goes back. So I have use `sr-speedbar` to do this.
+(require-package 'sr-speedbar)
+(require 'sr-speedbar)
 
 (provide 'init-ecb)
