@@ -55,7 +55,7 @@
 (require 'init-ibuffer)
 (require 'init-flycheck)
 (require 'init-highlight-indentation)
-(require 'init-ecb)
+(require 'init-code-browser-utils)
 (require 'init-projectile)
 
 (require 'init-recentf)

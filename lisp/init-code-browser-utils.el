@@ -46,10 +46,28 @@ activate it in current frame."
     )
   )
 
-;; Display speedbar in the same frame. The speedbar of ECB is weird. Each time
-;; I want to enter a directory, it always enters in that directory for less one
-;; second and goes back. So I have use `sr-speedbar` to do this.
-(require-package 'sr-speedbar)
-(require 'sr-speedbar)
+;; sr-speedbar, directories and speedbar window of ECB all do not
+;; usable. Surprisingly, I found neotree, which is modeld after NERDTree of
+;; Vim.
+(require-package 'neotree)
+(require 'neotree)
+(global-set-key [f4] 'neotree-toggle)
+(setq neo-window-position 'right)
+;; If non-nil, every time when the neotree window is opened, it will try to
+;; find current file and jump to node.
+(setq neo-smart-open t)
+;; When running ‘projectile-switch-project’ (C-c p p), ‘neotree’ will change
+;; root automatically.
+(setq projectile-switch-project-action 'neotree-projectile-action)
+;; If you use evil-mode, by default some of evil key bindings conflict with
+;; neotree-mode keys. For example, you cannot use q to hide NeoTree. To make
+;; NeoTree key bindings in effect, you can bind those keys in
+;; evil-normal-state-local-map in neotree-mode-hook, as shown in below code:
+(add-hook 'neotree-mode-hook
+          (lambda ()
+            (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+            (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-enter)
+            (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+            (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)))
 
-(provide 'init-ecb)
+(provide 'init-code-browser-utils)
