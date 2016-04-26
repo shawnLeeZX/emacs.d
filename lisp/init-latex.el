@@ -78,6 +78,7 @@
 ;; a comprehensive solution for managing cross references,
 ;; bibliographies, indices, document navigation and a few other
 ;; things: RefTex.
+(setq reftex-plug-into-AUCTeX t)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
