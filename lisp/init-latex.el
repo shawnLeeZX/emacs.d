@@ -68,6 +68,7 @@
                                         (TeX-command-menu "LaTeX")
                                         )
                                       nil 1)
+                            (setq TeX-command-extra-options "-shell-escape")
                             )
           )
 
