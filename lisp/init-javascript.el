@@ -45,9 +45,8 @@
   (add-hook 'js2-mode-hook 'ac-js2-mode)
   ;; Since skewer-setup does not work, use skewer-mode directly.
   ;; Here is how for all support modes.
-  ;; (add-hook 'js2-mode-hook 'skewer-mode)
-  ;; (add-hook 'css-mode-hook 'skewer-css-mode)
-  ;; (add-hook 'html-mode-hook 'skewer-html-mode)
+  (add-hook 'css-mode-hook 'skewer-css-mode)
+  (add-hook 'html-mode-hook 'skewer-html-mode)
   (add-hook 'js2-mode-hook 'skewer-mode)
   (add-hook 'js2-mode-hook 'enable-ac-js2-mode)
 )

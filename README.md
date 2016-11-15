@@ -1,23 +1,13 @@
-# Configuration for emacs
-I forked this [emacs.d](https://github.com/purcell/emacs.d) to make my own.
-
-You could setup your own following the tutorial
-[here](http://shawnleezx.github.io/blog/2014/08/18/learning-emacs-in-3-days/).
-
-Continuing the tutorial, functionalities added after forking of this `emacs.d`
-will be described.
-
-If you find this repo useful, please give it a star!
+# Configuration for Emacs
 
 ## General Extensions
 
 ### Package Management
 
-Emacs has better package management mechanism for extensions than
-vim. I use `package.el`. See this
-[blog](http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/).
-
-Note that this is not an added functionalities.
+Emacs has better package management mechanism for extensions than vim. I use
+`package.el`, which is built-in in Emacs. See this
+[blog](http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/)
+for an introduction.
 
 ### Auto-complete & Company
 
@@ -52,10 +42,12 @@ To enable inter-program copy and paste, see this
 [blog](http://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/).
 
 ### Swap Ctrl and Caps Lock
+
 Make `<Caps Lock>` a `<Ctrl>` key to speed up typing. See
 [here](http://www.emacswiki.org/emacs/MovingTheCtrlKey).
 
 ### Manage Extra with git
+
 Occasionally, you cannot find extensions you want in the package
 management system. To manage the extensions you download, use git. And
 to keep those extensions in their git repo will ease the process of
@@ -263,6 +255,7 @@ sudo pip install pylint
 ```
 
 ## IDE for R.
+
 [Emacs Speaks Statistics (ESS)](http://ess.r-project.org/) is an
 add-on package for emacs text editors such as GNU Emacs and XEmacs.It
 is designed to support editing of scripts and interaction with various
@@ -274,19 +267,23 @@ start R, using `M-X R` beforehand, to make the autocomplete work.
 
 ## IDE for ruby on rails
 
+TODO: support for ruby is not fully tested.
+
 ### yari
 
-[yari](http://www.emacswiki.org/emacs-de/YARI) provides an Emacs frontend to Ruby's `ri` documentation tool. It offers
-lookup and completion.
+[yari](http://www.emacswiki.org/emacs-de/YARI) provides an Emacs frontend to
+Ruby's `ri` documentation tool. It offers lookup and completion.
 
 ### robe
 
-[Robe](https://github.com/dgutov/robe) is a code assistance tool that uses a Ruby REPL subprocess with your
-application or gem code loaded, to provide information about loaded classes and
-modules, and where each method is defined.
+[Robe](https://github.com/dgutov/robe) is a code assistance tool that uses a
+Ruby REPL subprocess with your application or gem code loaded, to provide
+information about loaded classes and modules, and where each method is defined.
 
 ### inf-ruby
-[inf-ruby](https://github.com/nonsequitur/inf-ruby/) provides a REPL buffer connected to a Ruby subprocess.
+
+[inf-ruby](https://github.com/nonsequitur/inf-ruby/) provides a REPL buffer
+connected to a Ruby subprocess.
 
 ### web-mode with auto-complete
 
@@ -295,6 +292,8 @@ editing web templates: HTML documents embedding parts (CSS / JavaScript) and
 blocks (client / server side). I added context awareness in web-mode to let
 auto-complete to make it capable of working with all kinds of language in the
 embedded file. What's more, web-mode is able to autoclose html tag pairs.
+
+TODO: `web-mode` needs some more working to work smoothly, unused for now.
 
 ### flycheck
 
@@ -308,8 +307,6 @@ TODO: make flycheck for `.erb` files work.
 
 ## IDE for Javascript
 
-Tweak purcell's config letting it only suit with emacs 24+.
-
 [js2-mode](https://code.google.com/p/js2-mode/): An improved JavaScript
 mode for GNU Emacs.
 
@@ -320,12 +317,15 @@ parser and Skewer-mode (requires Emacs 24.3).
 [coffee-mode](https://github.com/defunkt/coffee-mode): An Emacs major
 mode for CoffeeScript and IcedCoffeeScript.
 
-[skewer-mode](https://github.com/skeeto/skewer-mode): Provides live
-interaction with JavaScript, CSS, and HTML in a web
-browser. Expressions are sent on-the-fly from an editing buffer to be
-evaluated in the browser, just like Emacs does with an inferior Lisp
-process in Lisp modes. Call `run-skewer` to start server in the brower
-to enable its functionalities.
+[skewer-mode](https://github.com/skeeto/skewer-mode): Provides live interaction
+with JavaScript, CSS, and HTML in a web browser. Expressions are sent
+on-the-fly from an editing buffer to be evaluated in the browser, just like
+Emacs does with an inferior Lisp process in Lisp modes. In `skewer-mode`, Emacs
+maintains a web server so we do not need to set up a server using `python -m
+SimpleHTTPServer 8888` or other servers. Run `httpd-serve-directory` to select
+the root directory and start the serve. The port number is `8080`. You need to
+include `<script src="http://localhost:8080/skewer"></script>` in the main HTML
+file to make it work.
 
 ## IDE for Octave.
 
@@ -367,6 +367,7 @@ The following packages are included:
   `autocomplete-mode`.
 
 ## Writing Markdown.
+
 See this
 [post](http://shawnleezx.github.io/blog/2014/09/24/writing-markdown-with-autocomplete-and-math-equation-in-emacs/).
 
