@@ -1,5 +1,8 @@
 # Configuration for Emacs
 
+I switched from Vim to Emacs (and still use Vim for quick editing, especially
+tasks in servers). So this may be a good guide for Vimers who want to try out Emacs.
+
 ## General Extensions
 
 ### Package Management
@@ -265,46 +268,6 @@ ESS works with auto-complete to provide auto completion.
 [Link](http://www.emacswiki.org/emacs/ESSAuto-complete). Note that you should
 start R, using `M-X R` beforehand, to make the autocomplete work.
 
-## IDE for ruby on rails
-
-TODO: support for ruby is not fully tested.
-
-### yari
-
-[yari](http://www.emacswiki.org/emacs-de/YARI) provides an Emacs frontend to
-Ruby's `ri` documentation tool. It offers lookup and completion.
-
-### robe
-
-[Robe](https://github.com/dgutov/robe) is a code assistance tool that uses a
-Ruby REPL subprocess with your application or gem code loaded, to provide
-information about loaded classes and modules, and where each method is defined.
-
-### inf-ruby
-
-[inf-ruby](https://github.com/nonsequitur/inf-ruby/) provides a REPL buffer
-connected to a Ruby subprocess.
-
-### web-mode with auto-complete
-
-[web-mode.el](http://web-mode.org/) is an autonomous emacs major-mode for
-editing web templates: HTML documents embedding parts (CSS / JavaScript) and
-blocks (client / server side). I added context awareness in web-mode to let
-auto-complete to make it capable of working with all kinds of language in the
-embedded file. What's more, web-mode is able to autoclose html tag pairs.
-
-TODO: `web-mode` needs some more working to work smoothly, unused for now.
-
-### flycheck
-
-To enable flycheck for ruby, install:
-
-```bash
-gem install rubocop ruby-lint
-```
-
-TODO: make flycheck for `.erb` files work.
-
 ## IDE for Javascript
 
 [js2-mode](https://code.google.com/p/js2-mode/): An improved JavaScript
@@ -323,7 +286,7 @@ on-the-fly from an editing buffer to be evaluated in the browser, just like
 Emacs does with an inferior Lisp process in Lisp modes. In `skewer-mode`, Emacs
 maintains a web server so we do not need to set up a server using `python -m
 SimpleHTTPServer 8888` or other servers. Run `httpd-serve-directory` to select
-the root directory and start the serve. The port number is `8080`. You need to
+the root directory and start the server. The port number is `8080`. You need to
 include `<script src="http://localhost:8080/skewer"></script>` in the main HTML
 file to make it work.
 
@@ -370,6 +333,46 @@ The following packages are included:
 
 See this
 [post](http://shawnleezx.github.io/blog/2014/09/24/writing-markdown-with-autocomplete-and-math-equation-in-emacs/).
+
+## IDE for ruby on rails
+
+TODO: support for ruby is not fully tested.
+
+### yari
+
+[yari](http://www.emacswiki.org/emacs-de/YARI) provides an Emacs frontend to
+Ruby's `ri` documentation tool. It offers lookup and completion.
+
+### robe
+
+[Robe](https://github.com/dgutov/robe) is a code assistance tool that uses a
+Ruby REPL subprocess with your application or gem code loaded, to provide
+information about loaded classes and modules, and where each method is defined.
+
+### inf-ruby
+
+[inf-ruby](https://github.com/nonsequitur/inf-ruby/) provides a REPL buffer
+connected to a Ruby subprocess.
+
+### web-mode with auto-complete
+
+[web-mode.el](http://web-mode.org/) is an autonomous emacs major-mode for
+editing web templates: HTML documents embedding parts (CSS / JavaScript) and
+blocks (client / server side). I added context awareness in web-mode to let
+auto-complete to make it capable of working with all kinds of language in the
+embedded file. What's more, web-mode is able to autoclose html tag pairs.
+
+TODO: `web-mode` needs some more working to work smoothly, unused for now.
+
+### flycheck
+
+To enable flycheck for ruby, install:
+
+```bash
+gem install rubocop ruby-lint
+```
+
+TODO: make flycheck for `.erb` files work.
 
 ## Utilities
 
