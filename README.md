@@ -239,17 +239,20 @@ navigation. Instead, I used `jedi`.
 
 ### Flycheck
 
-Though elpy uses the build-in `flymake` to provide syntax checking, `flycheck`
-does not conflict with `flymake`, so it would be more powerful if you have two
-installed.
+Though elpy uses the build-in `flymake` to provide syntax checking. `flycheck`
+is also enabled, mostly for not bothering to disable flycheck specifically for
+just python, though these two checkers has been configured to use `pyflakes` to
+syntax checking.
 
-To make flycheck work with python, `flake8` needs to be installed:
+To make flycheck work with python, `pyflakes` needs to be installed:
 
 ```bash
-sudo pip install flake8
+sudo pip install pyflakes
 ```
-Previously, I used `pylint`, however, it makes a bunch of error when dealing
-with external python library. So I switched.
+
+Previously, I used `flake8`, but later found I need to break indentation rule
+of PEP8 from time to time. Before that, I used `pylint`, however, it makes a
+bunch of error when dealing with external python library.
 
 To make flycheck work with python, `pylint` needs to be installed:
 
@@ -373,6 +376,13 @@ gem install rubocop ruby-lint
 ```
 
 TODO: make flycheck for `.erb` files work.
+
+## Note on fly-check and fly-make
+
+`fly-check` is said to be a replacement of `fly-maker`. See
+[here](http://www.flycheck.org/en/latest/user/flycheck-versus-flymake.html) and
+[here](https://www.masteringemacs.org/article/spotlight-flycheck-a-flymake-replacement)
+but I enable both of them anyway.
 
 ## Utilities
 

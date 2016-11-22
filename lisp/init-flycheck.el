@@ -22,4 +22,8 @@
 
 (setq flycheck-display-errors-function 'sanityinc/flycheck-maybe-display-errors)
 
+;; Using pyflakes as the syntax checker.
+(require-package 'flycheck-pyflakes)
+(require 'flycheck-pyflakes)
+
 (provide 'init-flycheck)
