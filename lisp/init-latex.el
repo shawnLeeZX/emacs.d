@@ -10,7 +10,7 @@
 ;; This raises the frame when using Evince.
 (add-hook 'TeX-source-correlate-mode-hook
       (lambda ()
-        (when (TeX-evince-dbus-p)
+        (when (TeX-evince-dbus-p "gnome" "evince")
           (dbus-register-signal
            :session nil "/org/gnome/evince/Window/0"
            "org.gnome.evince.Window" "SyncSource"
