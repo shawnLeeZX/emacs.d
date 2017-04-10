@@ -13,18 +13,21 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Config for python.el.
+;;
+;; NOTE: the following command has trouble parsing ipython 5+. Turns out elpy
+;; works well without the following code. Consider purge.
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq
- python-shell-interpreter "ipython"
- ;; python-shell-interpreter-args "--gui=wx --matplotlib=wx --colors=Linux"
- python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- python-shell-completion-setup-code
-   "from IPython.core.completerlib import module_completion"
- python-shell-completion-module-string-code
-   "';'.join(module_completion('''%s'''))\n"
- python-shell-completion-string-code
-   "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+;; (setq
+;;  python-shell-interpreter "ipython --simple-prompt"
+;;  ;; python-shell-interpreter-args "--gui=wx --matplotlib=wx --colors=Linux"
+;;  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+;;  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+ ;; python-shell-completion-setup-code
+ ;;   "from IPython.core.completerlib import module_completion"
+ ;; python-shell-completion-module-string-code
+ ;;   "';'.join(module_completion('''%s'''))\n"
+ ;; python-shell-completion-string-code
+ ;;   "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; elpy
@@ -65,8 +68,17 @@
 ;; Smartparens has some support for python. Add it.
 (require 'smartparens-python)
 
+;; Refactoring
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require-package 'traad)
+(require 'traad)
+;; NOTE: traad will not give confirmation page about potential changes but
+;; refactor the project directly. Use with cautions. Undo is possible though.
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; TODO: figure out how to refactor python code using ropemacs.
+
+
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; NOTE: Old code saved for reference in case I need them in the future.
 ;; ;; Pymacs
 ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/pymacs/")
 ;; (autoload 'pymacs-apply "pymacs")

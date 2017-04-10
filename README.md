@@ -260,6 +260,17 @@ To make flycheck work with python, `pylint` needs to be installed:
 sudo pip install pylint
 ```
 
+### traad --- a client-server refactoring solution
+
+[`traad`](https://github.com/abingham/traad) is an refactoring server for
+Python code. It listens for HTTP requests to perform refactorings, performs
+them, and allows clients to query for the status.
+
+Finally, a refactoring package that works. Tested with modest complexity
+refactoring. For small scale refactoring, the support in `elpy` is better,
+since it gives a page that preview the change. `traad` does not do this, but it
+seems to handle refactoring better (with a better conversation with rope).
+
 ## IDE for R.
 
 [Emacs Speaks Statistics (ESS)](http://ess.r-project.org/) is an
