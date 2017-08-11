@@ -42,7 +42,7 @@
 ;; Highligh TODO etc.
 (require-package 'fic-mode)
 (require 'fic-mode)
-(add-hook 'after-change-major-mode-hook 'fic-mode)
+(add-hook 'prog-mode-hook 'fic-mode)
 
 ;; Make newly create frames inherit current transparency value.
 (add-to-list 'frame-inherited-parameters 'alpha)
