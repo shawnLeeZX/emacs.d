@@ -78,7 +78,6 @@
 (require 'init-git)
 (require 'init-github)
 
-(require 'init-marmalade)
 (require 'init-misc)
 
 (require 'init-dash)

@@ -7,7 +7,6 @@
 (require 'init-general)
 (require 'init-appearance )
 (require 'init-indentation )
-(require 'init-local-util)
 (require 'init-key-binding)
 ;; Enable flyspell mode for word checking.
 (require 'init-language-tool)
