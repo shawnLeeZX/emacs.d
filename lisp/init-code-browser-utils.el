@@ -4,7 +4,7 @@
 ;; Since I did not find out how the new layout is stored by ecb yet and did not
 ;; figure out how to write it using macro, it is possible one has to create the
 ;; new layout each time setting up emacs on a new machine.
-(setq ecb-layout-name "shawn-layout")
+(setq ecb-layout-name "left9")
 
 ;; How to change ecb windows width.
 ;;
