@@ -187,6 +187,24 @@ is chosen from your OS's preference."
   (insert (make-string (- fill-column (current-column)) ?=))
   )
 
+;; This is a modified version of make-divider in the auto-header package. Since
+;; if the comment-start is one character, it is common, as I have done, to add
+;; one extra space after the character. In this case, original function uses
+;; the second character to padding the dividor, which has no effect if it is
+;; space. This I change it to use the first symbol of comment-start all the
+;; time.
+(defun make-divider (&optional end-col)
+  "Insert a comment divider line: the comment start, filler, and end.
+END-COL is the last column of the divider line."
+  (interactive)
+  (insert comment-start)
+  (when (= 1 (length comment-start)) (insert comment-start))
+  (insert (make-string (max 2 (- (or end-col (- fill-column 2))
+                                 (length comment-end) 2 (current-column)))
+                       (aref comment-start 0)))
+  (insert (concat comment-end "\n")))
+
+
 ;; On Environment Variables.
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Small helper to scrape text from shell output

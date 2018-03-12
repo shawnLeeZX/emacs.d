@@ -2,6 +2,13 @@
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
 
@@ -27,10 +34,8 @@
 
 ;; Extra packages which don't require any configuration
 (require-package 'wgrep)
-(require-package 'project-local-variables)
 (require-package 'diminish)
 (require-package 'scratch)
-(require-package 'mwe-log-commands)
 
 (require-package 'gnuplot)
 (require-package 'htmlize)
@@ -69,7 +74,7 @@
 (require 'init-sessions)
 (require 'init-fonts)
 (require 'init-mmm)
-(require 'init-auto-header)
+; (require 'init-auto-header)
 
 (require 'init-editing-utils)
 
@@ -95,10 +100,8 @@
 (require 'init-cpp)
 (require 'init-makefile-mode)
 (require 'init-r-mode)
-(require 'init-crontab)
 (require 'init-textile)
 (require 'init-markdown)
-(require 'init-csv)
 (require 'init-erlang)
 (require 'init-javascript)
 (require 'init-php)

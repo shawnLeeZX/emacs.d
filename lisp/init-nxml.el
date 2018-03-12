@@ -26,11 +26,11 @@ indentation rules."
         (backward-char) (insert "\n"))
       (indent-region begin end)))
 
-;;----------------------------------------------------------------------------
-;; Integration with tidy for html + xml
-;;----------------------------------------------------------------------------
-(require-package 'tidy)
-(add-hook 'nxml-mode-hook (lambda () (tidy-build-menu nxml-mode-map)))
+; ;;----------------------------------------------------------------------------
+; ;; Integration with tidy for html + xml
+; ;;----------------------------------------------------------------------------
+; (require-package 'tidy)
+; (add-hook 'nxml-mode-hook (lambda () (tidy-build-menu nxml-mode-map)))
 
 
 (provide 'init-nxml)
