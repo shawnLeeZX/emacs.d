@@ -96,6 +96,8 @@
 (require-package 'latex-pretty-symbols)
 (require 'latex-pretty-symbols)
 ;; Symbol completion.
+(require-package 'company-math)
+(require 'company-math)
 (defun setup-company-math ()
   (setq-local company-backends
               (append '(company-math-symbols-latex company-latex-commands)
