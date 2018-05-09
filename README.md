@@ -334,9 +334,12 @@ The following packages are included:
 * [RefTEX](http://www.gnu.org/software/auctex/reftex.html), a
   specialized package for support of labels, references, citations,
   and the indices in LATEX.
-* [latex-pretty-symbols](https://bitbucket.org/mortiferus/latex-pretty-symbols.el/),
-  an extension that makes emacs display unicode characters instead of
-  latex commands for a lot of the most usual symbols.
+* Since Emacs 24.4, `prettify-symbols-mode` is built in to display math symbols
+  --- and much more other symbols, and are much robust than the
+  `latex-pretty-symbols`
+  mode. <del>[latex-pretty-symbols](https://bitbucket.org/mortiferus/latex-pretty-symbols.el/),
+  an extension that makes emacs display unicode characters instead of latex
+  commands for a lot of the most usual symbols.</del>
 * [company-math](https://github.com/vspinu/company-math) Completion back-ends
   for for math unicode symbols and latex tags. It works with
   `autocomplete-mode` --- completion will pop up automatically, so if you press
