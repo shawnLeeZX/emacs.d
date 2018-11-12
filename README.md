@@ -78,22 +78,7 @@ source code. I decided to work this way ...
 ### Smartparens
 
 [Smartparens](https://github.com/Fuco1/smartparens/wiki) is minor mode for
-Emacs that deals with parens pairs and tries to be smart about it. It started
-as a unification effort to combine functionality of several existing packages
-in a single, compatible and extensible way to deal with parentheses,
-delimiters, tags and the like. Some of these packages include autopair,
-textmate, wrap-region, electric-pair-mode, paredit and others.
-
-Smartparens has support for LaTeX and python, to use it add the following
-lines to your latex and python configuration respectively:
-
-```lisp
-(require 'smartparens-latex)
-```
-
-```lisp
-(require 'smartparens-python)
-```
+Emacs that deals with parens pairs and tries to be smart about it.
 
 What's more if you write math in markdown often, there is one trick to make the
 support of smartparens to work with `markdown-mode` as well. Find the following
@@ -351,9 +336,12 @@ The following packages are included:
 * [RefTEX](http://www.gnu.org/software/auctex/reftex.html), a
   specialized package for support of labels, references, citations,
   and the indices in LATEX.
-* [latex-pretty-symbols](https://bitbucket.org/mortiferus/latex-pretty-symbols.el/),
-  an extension that makes emacs display unicode characters instead of
-  latex commands for a lot of the most usual symbols.
+* Since Emacs 24.4, `prettify-symbols-mode` is built in to display math symbols
+  --- and much more other symbols, and are much robust than the
+  `latex-pretty-symbols`
+  mode. <del>[latex-pretty-symbols](https://bitbucket.org/mortiferus/latex-pretty-symbols.el/),
+  an extension that makes emacs display unicode characters instead of latex
+  commands for a lot of the most usual symbols.</del>
 * [company-math](https://github.com/vspinu/company-math) Completion back-ends
   for for math unicode symbols and latex tags. It works with
   `autocomplete-mode` --- completion will pop up automatically, so if you press
