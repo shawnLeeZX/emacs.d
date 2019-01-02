@@ -15,7 +15,7 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 
-(setq TeX-engine 'xetex) ; Use xelatex as default.
+(setq TeX-engine 'pdftex) ; Use xelatex as default.
 (setq TeX-engine-alist '((pdftex "pdftex" "pdftex" "pdflatex" "pdftex"))
                         )
 ; (setq TeX-show-compilation t) ; Show compilation information aside.
