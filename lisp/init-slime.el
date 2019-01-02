@@ -9,7 +9,13 @@
 (require-package 'hippie-expand-slime)
 
 
-;;; Lisp buffers
+;;; Setup
+(setq slime-lisp-implementations
+      `((sbcl ("/usr/bin/sbcl"))
+        (sbcl-dev (,(concat (getenv "HOME")  "/opt/sbcl_dev/bin/sbcl")))))
+
+
+;;; lisp buffers
 
 (defun sanityinc/slime-setup ()
   "Mode setup function for slime lisp buffers."
