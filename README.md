@@ -366,6 +366,10 @@ interactively mark the major-mode for that region. It is an ad hoc usage.
 The mode marked won't be saved, and has to be re-marked on next editing if the
 buffer is closed.
 
+
+mmm-mode needs to be enabled manually when needed. It introduces errors when
+trying to enabling it through `markdown-mode-hook`.
+
 ### flymd
 
 [flymd](https://github.com/mola-T/flymd) is for rendering markdown files on the

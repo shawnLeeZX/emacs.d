@@ -7,7 +7,6 @@
                                 ;; Disable whitespace cleanup since trailing
                                 ;; whitespace is important for indentation.
                                 (whitespace-cleanup-mode -1)
-                                (mmm-mode t)
                               )
 )
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
