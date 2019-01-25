@@ -8,7 +8,7 @@
 (setq ido-use-virtual-buffers t)
 
 (when (eval-when-compile (>= emacs-major-version 24))
- (require-package 'ido-ubiquitous)
+ (require-package 'ido-completing-read+)
  (ido-ubiquitous-mode t))
 
 ;; Use smex to handle M-x
