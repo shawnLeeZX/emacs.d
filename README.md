@@ -350,8 +350,33 @@ The following packages are included:
 
 ## Writing Markdown.
 
-See this
+For basic setup refer to
 [post](http://shawnleezx.github.io/blog/2014/09/24/writing-markdown-with-autocomplete-and-math-equation-in-emacs/).
+
+### mmm-mode
+
+[MMM Mode](https://github.com/purcell/mmm-mode) is a minor mode for Emacs that
+allows Multiple Major Modes to coexist in one buffer. It is used write contents
+that are beyond the support of markdown. It could include writing LaTeX. A more
+frequent use case is to write html tags inside markdown.
+
+
+Usage. Visually select a region in the markdown file, and use `C-c % C-r` to
+interactively mark the major-mode for that region. It is an ad hoc usage.
+The mode marked won't be saved, and has to be re-marked on next editing if the
+buffer is closed.
+
+### flymd
+
+[flymd](https://github.com/mola-T/flymd) is for rendering markdown files on the
+fly using the browser. It depends on firebox (or other compatible browsers). It
+uses the style of github to render the markdown, so it is more visually
+appealing than raw html. It also supports auto-scrolling to the position that
+one is editing in Emacs.
+
+
+
+
 
 ## IDE for ruby on rails
 

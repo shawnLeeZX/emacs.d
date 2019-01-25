@@ -3,6 +3,13 @@
 (setq auto-mode-alist
       (cons '("\\.\\(md\\|markdown\\|txt\\|text\\)\\'" . markdown-mode) auto-mode-alist))
 
+(add-hook 'markdown-mode-hook (lambda ()
+                                ;; Disable whitespace cleanup since trailing
+                                ;; whitespace is important for indentation.
+                                (whitespace-cleanup-mode -1)
+                                (mmm-mode t)
+                              )
+)
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 
@@ -29,11 +36,15 @@
 (require 'smartparens-latex)
 
 
-;; Disable whitespace cleanup since trailing whitespace is important
-;; for indentation.
-(add-hook 'markdown-mode-hook (lambda ()
-                                (whitespace-cleanup-mode -1)
-                              )
-)
+;; Preview on the fly
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require-package 'flymd)
+(require 'flymd)
+;; Use firefox for preview.
+(defun my-flymd-browser-function (url)
+   (let ((browse-url-browser-function 'browse-url-firefox))
+     (browse-url url)))
+(setq flymd-browser-open-function 'my-flymd-browser-function)
+
 
 (provide 'init-markdown)
