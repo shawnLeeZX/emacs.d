@@ -7,6 +7,7 @@
   (add-hook 'sgml-mode-hook (lambda () (tagedit-mode 1))))
 
 (add-auto-mode 'html-mode "\\.(jsp|tmpl)\\'")
+(remove-hook 'after-save-hook 'browse-url-of-buffer)
 
 ;; Note: ERB is configured in init-ruby-mode
 
