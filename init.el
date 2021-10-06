@@ -46,6 +46,7 @@
   (require-package 'osx-location))
 
 (require-package 'lua-mode)
+(require-package 'djvu)
 
 
 ;; Packages need configuring.
