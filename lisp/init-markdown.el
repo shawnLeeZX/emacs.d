@@ -37,13 +37,7 @@
 
 ;; Preview on the fly
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require-package 'flymd)
-(require 'flymd)
-;; Use firefox for preview.
-(defun my-flymd-browser-function (url)
-   (let ((browse-url-browser-function 'browse-url-firefox))
-     (browse-url url)))
-(setq flymd-browser-open-function 'my-flymd-browser-function)
+(require-package 'markdown-preview-mode)
 
 
 (provide 'init-markdown)
