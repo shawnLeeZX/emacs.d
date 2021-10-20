@@ -100,5 +100,8 @@
 
 (evil-set-initial-state #'git-commit-mode 'normal)
 
+;; Set up the undo system.
+(global-undo-tree-mode)
+(evil-set-undo-system 'undo-tree)
 
 (provide 'init-evil)
