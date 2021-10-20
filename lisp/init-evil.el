@@ -6,6 +6,33 @@
 (require-package 'evil-matchit)
 (require-package 'evil-visualstar)
 
+;; Disable TAB
+;; Emacs’ Org mode uses the TAB key to call org-cycle, which cycles
+;; visibility for headers. Every TAB press on a headline cycles
+;; through a different function1:
+
+;;     The first press folds the headline’s subtree, showing only the
+;;     headline itself
+;;     The scond press shows the headline and its direct descendants,
+;;     but keeps them folded
+;;     The third press shows the headline’s complete subtree
+
+;; However, running Emacs with Evil mode in a terminal breaks the TAB
+;; key for cycling through header visibility in Org mode.
+
+;; Most terminals map both TAB and C-i to U+0009 (Character
+;; Tabulation) for historical reasons, meaning they’re recognised as
+;; the same keypress. Because of this, there is no way to map
+;; different functions to them inside Emacs.
+
+;; Evil remaps C-i to evil-jump-forward to emulate Vim’s jump lists
+;; feature2, which overwrites the default mapping for the TAB key in
+;; Org mode.
+
+;; To fix the tab key’s functionality in Org mode, sacrifice Evil’s
+;; C-i backward jumping by turning it off in your configuration with
+;; the evil-want-C-i-jump option.
+(setq evil-want-C-i-jump nil)
 
 ;; Make a visual selection with v or V, and then hit * to search that
 ;; selection forward, or # to search that selection backward.
