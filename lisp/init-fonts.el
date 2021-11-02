@@ -1,3 +1,10 @@
+;;; Set default font
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'default-frame-alist '(family . "Noto Sans Mono" ))
+(set-face-attribute 'default t :family "Noto Sans Mono")
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 ;;; Character sets
 
 (defcustom sanityinc/force-default-font-for-symbols nil
