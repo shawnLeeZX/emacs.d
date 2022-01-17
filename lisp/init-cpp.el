@@ -36,24 +36,28 @@
 ;; is also included here.  Note that syntax checker does conflict with each
 ;; other.
 
-(require-package 'flymake-google-cpplint)
 (require-package 'flymake-cursor)
 (require-package 'google-c-style)
 
-;; make c++ code comply to google c++ coding style.  This package plays a role
-;; as the glue between the cpplint.py, which is a python program to check the
-;; code conforming to the code guide written by google, and Emacs.  It calls
-;; cpplint.py and display the result in Emacs.
-(defun shawn:flymake-google-init ()
-  (require 'flymake-google-cpplint)
-  (custom-set-variables
-   '(flymake-google-cpplint-command "/usr/local/bin/cpplint")
-  )
-  (flymake-google-cpplint-load)
-  )
 
-(add-hook 'c-mode-hook 'shawn:flymake-google-init)
-(add-hook 'c++-mode-hook 'shawn:flymake-google-init)
+;; ;; flymake is advised against, and flycheck-google-cpplint is
+;; ;; suggested; thus the following configuration is commented out.
+;; (require-package 'flymake-google-cpplint)
+
+;; ;; make c++ code comply to google c++ coding style.  This package plays a role
+;; ;; as the glue between the cpplint.py, which is a python program to check the
+;; ;; code conforming to the code guide written by google, and Emacs.  It calls
+;; ;; cpplint.py and display the result in Emacs.
+;; (defun shawn:flymake-google-init ()
+;;   (require 'flymake-google-cpplint)
+;;   (custom-set-variables
+;;    '(flymake-google-cpplint-command "/usr/bin/cpplint")
+;;   )
+;;   (flymake-google-cpplint-load)
+;;   )
+
+;; (add-hook 'c-mode-hook 'shawn:flymake-google-init)
+;; (add-hook 'c++-mode-hook 'shawn:flymake-google-init)
 
 ;; The author of flymake-google-cpplint says that flymake-google-cpplint does
 ;; not support c source files.  However, after some simple check, I found
