@@ -231,13 +231,38 @@ documentation about a symbol or function call at point in the message buffer
 
 ### elpy
 
-[Elpy](https://github.com/jorgenschaefer/elpy) is an Emacs package to bring
-powerful Python editing to Emacs. It combines a number of other packages, both
-written in Emacs Lisp as well as Python.
+[Elpy](https://github.com/jorgenschaefer/elpy) is an Emacs package to
+bring powerful Python editing to Emacs. It combines a number of other
+packages, both written in Emacs Lisp as well as Python.
 
-It is surprising easy to set up. One thing to note is that I have trouble using
-`rope` as the backend for elpy, which cannot handle cross module
-navigation. Instead, I used `jedi`.
+Package should be working mostly out of box, with some further
+configurations described starting from the next paragraph. One thing
+to note is that I have trouble using `rope` as the backend for elpy,
+which cannot handle cross module navigation. Instead, I used `jedi`.
+
+Elpy needs to set up a python virtual environment where it could
+communicate with the backend through rpc for functions such code
+completion. Call `elpy-rpc-reinstall-virtualenv` to setup the virtual
+environment if it has not been done. To use a specific version of
+python for the virtual env, set the following variable, e.g.,
+
+```lisp
+(setq elpy-rpc-python-command
+      (concat
+       (file-name-as-directory (getenv "HOME"))
+       "miniconda2/envs/python3/bin/python")
+      )
+```
+It also needs `jedi` for code completion (and other
+functions supported by jedi) and one of `flake8`, `autopep8`, `yapf,`
+`black` for code formatting. Install them where the virtual env has
+access.
+
+NOTE: It is complicated when using along with conda due to the
+manipulation of environment path done by both of the two virtual
+environment tools. To find out where the packages should be installed,
+one could use the interactive installation interface offered in
+`elpy-config` to install the above packages to find out.
 
 ### Flycheck
 
