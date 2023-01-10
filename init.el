@@ -122,6 +122,7 @@
 (require 'init-latex)
 (require 'init-protobuf)
 (require 'init-caffe)
+(require 'init-dockerfile-mode)
 
 (require 'init-lisp)
 (require 'init-slime)
