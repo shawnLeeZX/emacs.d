@@ -1,9 +1,5 @@
 (when (< emacs-major-version 24)
   (require-package 'org))
-(when *is-a-mac*
-  (require-package 'org-mac-link)
-  (autoload 'org-mac-grab-link "org-mac-link" nil t)
-  (require-package 'org-mac-iCal))
 ;; Purcell's head ends.
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
