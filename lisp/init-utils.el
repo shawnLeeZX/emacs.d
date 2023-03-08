@@ -83,5 +83,9 @@
         (error "Cannot open tramp file")
       (browse-url (concat "file://" file-name)))))
 
+;;---------------------------------------------------------------------------- |
+;; A helper to run command when alt+x does not work.        |
+;;---------------------------------------------------------------------------- |
+(global-set-key "\C-c\C-p" 'smex)
 
 (provide 'init-utils)
