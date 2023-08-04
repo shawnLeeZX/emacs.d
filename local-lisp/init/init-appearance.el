@@ -19,7 +19,10 @@
 (setq whitespace-style '(face trailing tabs tab-mark empty))
 
 ;; Display line number on the margin.
-(global-linum-mode)
+(if (version< emacs-version "29")
+    (global-linum-mode)
+  (global-display-line-numbers-mode 1)
+  )
 (setq linum-format "%4d \u2502")
 
 ;; Display a visual indicator for fill column width.
@@ -36,8 +39,8 @@
 (size-indication-mode 1)
 
 ;; Only do automatically vertical split.
-(setq split-height-threshold nil)
-(setq split-width-threshold 90)
+;; (setq split-height-threshold nil)
+(setq split-width-threshold nil)
 
 ;; Highligh TODO etc.
 (require-package 'fic-mode)
