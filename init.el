@@ -47,6 +47,7 @@
 
 (require-package 'lua-mode)
 (require-package 'djvu)
+(require-package 'imenu-list)
 
 
 ;; Packages need configuring.
