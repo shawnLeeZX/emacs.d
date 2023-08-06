@@ -47,7 +47,6 @@
 
 (require-package 'lua-mode)
 (require-package 'djvu)
-(require-package 'imenu-list)
 
 
 ;; Packages need configuring.
@@ -86,6 +85,7 @@
 (require 'init-git)
 (require 'init-github)
 
+(require 'init-imenu-list)
 (require 'init-misc)
 
 (require 'init-dash)
