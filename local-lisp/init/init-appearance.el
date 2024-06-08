@@ -50,6 +50,9 @@
 ;; Make newly create frames inherit current transparency value.
 (add-to-list 'frame-inherited-parameters 'alpha)
 
+;; Set default font
+(set-frame-font "-1ASC-Liberation Mono-regular-normal-normal-*-27-*-*-*-m-0-iso10646-1")
+
 (require 'init-powerline)
 
 (provide 'init-appearance)
