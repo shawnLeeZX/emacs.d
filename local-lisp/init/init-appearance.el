@@ -50,12 +50,23 @@
 ;; Make newly create frames inherit current transparency value.
 (add-to-list 'frame-inherited-parameters 'alpha)
 
-;; Set default font
-(add-hook 'after-init-hook
-          (lambda ()
-            (set-frame-font "-1ASC-Liberation Mono-regular-normal-normal-*-27-*-*-*-m-0-iso10646-1" nil t)))
+
+(when (eq system-type 'gnu/linux)
+  ;; Set default font
+  (add-hook 'after-init-hook
+            (lambda ()
+              (set-frame-font "-1ASC-Liberation Mono-regular-normal-normal-*-27-*-*-*-m-0-iso10646-1" nil t)))
+  )
 
 
 (require 'init-powerline)
+
+(require-package 'ansi-color)
+(require 'ansi-color)
+
+(defun my/apply-ansi-color ()
+  (ansi-color-apply-on-region (point-min) (point-max)))
+
+(add-hook 'compilation-filter-hook 'my/apply-ansi-color)
 
 (provide 'init-appearance)

@@ -28,5 +28,8 @@ name now is hard-coded."
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "C-c -") 'make-divider)
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when (eq system-type 'darwin)
+  (setq mac-option-modifier 'meta))
+
 
 (provide 'init-general)

@@ -40,7 +40,10 @@
 ;; Using pyflakes for syntax checking, since from time to time, PEP8 needs to
 ;; be violated. The varaible setting has to be before `elpy-enable' because it
 ;; set up a syntax checker in it using the variable.
-(setq elpy-syntax-check-command "pyflakes")
+(if (eq system-type 'darwin)
+    (setq elpy-syntax-check-command "flake8")
+  (setq elpy-syntax-check-command "pyflakes")
+  )
 (elpy-enable)
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
