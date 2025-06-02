@@ -10,6 +10,17 @@
 
 (require 'package)
 
+;; When packages are missing, package.el would download it. But due to the
+;; instability of emacs packages, the desired packages might not be
+;; there. Therefore, to enable godd debugging, we add logging to check the
+;; packages to be installed.
+(setq package-enable-at-startup nil)
+(defadvice package-install (before log-package-install (pkg) activate)
+  (message "Attempting to install package: %s" pkg))
+
+(defadvice package-refresh-contents (before log-package-refresh activate)
+  (message "Refreshing package contents"))
+
 
 
 ;;; Standard package repositories
