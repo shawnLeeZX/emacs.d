@@ -14,18 +14,20 @@
               auto-mode-alist))
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; Company based autocompletion has been switched to corfu. They need to be
+;; upgraded to use mechanism of corfu.
 ;; irony -- for the comple completion.
 ;; Given that irony-mode is not confined only with c++, its main configuration
 ;; is factored out to its own repository.
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require-package 'company-c-headers)
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-c-headers))
+;; (require-package 'company-c-headers)
+;; (eval-after-load 'company
+;;   '(add-to-list 'company-backends 'company-c-headers))
 
 ;; Setup keymapping for company-c-headers.
-(add-hook 'irony-mode-hook (lambda ()
-                             (local-set-key (kbd "C-c C-h") 'company-c-headers)
-                             ))
+;; (add-hook 'irony-mode-hook (lambda ()
+;;                              (local-set-key (kbd "C-c C-h") 'company-c-headers)
+;;                              ))
 
 ;; Autocomplete for c headers.
 ;; Do not use autocomplete for c++ anymore. So it is commented.

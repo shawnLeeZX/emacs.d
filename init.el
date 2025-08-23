@@ -71,7 +71,6 @@
 (require 'init-yasnippet)
 (require 'init-iedit)
 (require 'init-smartparens)
-(require 'init-auto-complete)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-fonts)
@@ -92,10 +91,10 @@
 (require 'init-ledger)
 
 (require 'init-evil)
-(require 'init-irony)
 (require 'init-ggtags)
-(require 'init-company)
+(require 'init-completion)
 (require 'init-cedet)
+(require 'init-lsp)
 
 ;; Language specific packages.
 (require 'init-bash)

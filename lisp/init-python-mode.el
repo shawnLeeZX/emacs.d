@@ -36,17 +36,22 @@
 ;; I made such a choice, refer to
 ;; http://shawnleezx.github.io/blog/2015/08/05/on-ides-of-python-in-emacs/
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require-package 'elpy)
-;; Using pyflakes for syntax checking, since from time to time, PEP8 needs to
-;; be violated. The varaible setting has to be before `elpy-enable' because it
-;; set up a syntax checker in it using the variable.
-(if (eq system-type 'darwin)
-    (setq elpy-syntax-check-command "flake8")
-  (setq elpy-syntax-check-command "pyflakes")
-  )
-(elpy-enable)
+;; (require-package 'elpy)
+;; ;; Using pyflakes for syntax checking, since from time to time, PEP8 needs to
+;; ;; be violated. The varaible setting has to be before `elpy-enable' because it
+;; ;; set up a syntax checker in it using the variable.
+;; (if (eq system-type 'darwin)
+;;     (setq elpy-syntax-check-command "flake8")
+;;   (setq elpy-syntax-check-command "pyflakes")
+;;   )
+;; (elpy-enable)
 
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require-package 'lsp-pyright)
+(setq lsp-pyright-langserver-command "basedpyright")
+(add-hook 'python-mode-hook '(lambda ()
+                               (require 'lsp-pyright)
+                               (lsp-deferred)))
 
 
 ;;; General settings.

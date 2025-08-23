@@ -82,13 +82,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Display Math symbol in Unicode directly.
 ;; Symbol completion.
-(require-package 'company-math)
-(require 'company-math)
-(defun setup-company-math ()
-  (setq-local company-backends
-              (append '(company-math-symbols-latex company-latex-commands)
-                      company-backends)))
-(add-hook 'LaTeX-mode-hook 'setup-company-math)
+;; Those company extensions are disabled because we have switched to
+;; corfu. They need to be upgraded to use corfu mechanism.
+;; (require-package 'company-math)
+;; (require 'company-math)
+;; (defun setup-company-math ()
+;;   (setq-local company-backends
+;;               (append '(company-math-symbols-latex company-latex-commands)
+;;                       company-backends)))
+;; (add-hook 'LaTeX-mode-hook 'setup-company-math)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; ;;; General Config
