@@ -95,6 +95,7 @@
 (require 'init-completion)
 (require 'init-cedet)
 (require 'init-lsp)
+(require 'init-ai-coding)
 
 ;; Language specific packages.
 (require 'init-bash)
