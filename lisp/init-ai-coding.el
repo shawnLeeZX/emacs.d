@@ -18,6 +18,10 @@
 
 ;; Where the `aider` binary is (usually in your venv or user site-packages bin)
 (setq aidermacs-aider-command (executable-find "aider"))
+;; Use vterm backend (default is comint)
+(setq aidermacs-backend 'vterm)
+;; Enable file watching
+(setq aidermacs-watch-files t)
 ;; Optional: default args (Aider will also read ~/.aider.conf.yml)
 (setq aidermacs-extra-args '())
 ;; Auto wrap line when chatting.
