@@ -87,7 +87,7 @@ locate PACKAGE."
 
 (package-initialize)
 
-
+(require 'use-package)
 
 (require-package 'fullframe)
 (fullframe list-packages quit-window)
