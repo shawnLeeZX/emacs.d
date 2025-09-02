@@ -151,6 +151,12 @@ is chosen from your OS's preference."
     )
   )
 
+(defun reveal-in-finder ()
+  "Open the current file's directory in Finder."
+  (interactive)
+  (when buffer-file-name
+    (shell-command (concat "open -R " (shell-quote-argument buffer-file-name)))))
+
 ;;; Create customized occur to make it only search buffers that has
 ;; the same mode of current buffer.
 ;; ===================================================================
