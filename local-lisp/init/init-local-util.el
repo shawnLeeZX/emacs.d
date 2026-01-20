@@ -230,4 +230,37 @@ END-COL is the last column of the divider line."
     )
   )
 
+
+(require 'cl-lib)
+
+(defun my/markdown-number-headings ()
+  "Renumber Markdown ATX headings (#, ##, ###...) in-place.
+
+If a heading already starts with a number like \"## 1.2 Title\",
+the existing number is replaced (not duplicated)."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (let ((counters (make-vector 32 0)))
+      (while (re-search-forward
+              ;; 1: hashes   2: optional existing number   3: title
+              "^\\(#+\\)\\s-+\\(?:\\([0-9]+\\(?:\\.[0-9]+\\)*\\)\\s-+\\)?\\(.*\\)$"
+              nil t)
+        (let* ((hashes (match-string 1))
+               (level (length hashes))
+               (title (match-string 3)))
+          ;; increment this level
+          (aset counters level (1+ (aref counters level)))
+          ;; reset deeper levels
+          (cl-loop for i from (1+ level) below (length counters)
+                   do (aset counters i 0))
+          ;; build "1.2.3"
+          (let ((num (mapconcat
+                      #'number-to-string
+                      (cl-loop for i from 1 to level
+                               collect (aref counters i))
+                      ".")))
+            ;; replace the whole heading line
+            (replace-match (format "%s %s %s" hashes num title) t t)))))))
+
 (provide `init-local-util)
